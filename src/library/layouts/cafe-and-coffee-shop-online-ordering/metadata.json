@@ -1,0 +1,11 @@
+{
+  "id": "cafe-and-coffee-shop-online-ordering",
+  "displayName": "Café & Coffee Shop (Online Ordering)",
+  "vertical": [
+    "FOOD_AND_DINING"
+  ],
+  "purpose": [
+    "CITATION"
+  ],
+  "pageSetType": "ENTITY"
+}

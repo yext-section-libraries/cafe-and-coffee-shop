@@ -1,0 +1,2403 @@
+{
+  "root": {
+    "props": {
+      "title": {
+        "field": "name",
+        "constantValue": "Yext Cafe And Coffee Shop Pages",
+        "constantValueEnabled": false
+      },
+      "version": 78,
+      "description": {
+        "field": "description",
+        "constantValue": "",
+        "constantValueEnabled": false
+      }
+    }
+  },
+  "zones": {},
+  "content": [
+    {
+      "type": "CafeAndCoffeeShopHeader",
+      "props": {
+        "id": "CafeAndCoffeeShopHeader-f47fd0cb-f4f2-4aa3-a0b4-27bff03ddbea",
+        "cta": {
+          "show": true,
+          "items": [
+            {
+              "cta": {
+                "data": {
+                  "cta": {
+                    "field": "",
+                    "selectedType": "textAndLink",
+                    "constantValue": {
+                      "link": {
+                        "defaultValue": "#"
+                      },
+                      "label": {
+                        "defaultValue": "CTA Label"
+                      },
+                      "ctaType": "textAndLink",
+                      "linkType": "URL"
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "customId": "",
+                  "ariaLabel": {
+                    "defaultValue": "CTA Label"
+                  },
+                  "actionType": "link",
+                  "buttonText": {
+                    "defaultValue": "Button"
+                  },
+                  "customClass": "",
+                  "openInNewTab": false,
+                  "dataAttributes": []
+                },
+                "styles": {
+                  "link": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "includeCaret": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "color": {
+                    "selectedColor": "white",
+                    "contrastingColor": "palette-primary"
+                  },
+                  "button": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "borderRadius": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "variant": "primary"
+                }
+              }
+            }
+          ]
+        },
+        "section": {
+          "backgroundColor": {
+            "selectedColor": "palette-primary",
+            "contrastingColor": "palette-primary-contrast"
+          },
+          "visibleOnLivePage": true
+        },
+        "variant": "centerLogoSplitNav",
+        "logoImage": {
+          "url": {
+            "field": "",
+            "constantValue": {
+              "defaultValue": ""
+            },
+            "constantValueEnabled": true
+          },
+          "show": true,
+          "image": {
+            "field": "",
+            "constantValue": {
+              "url": "https://a.mktgcdn.com/p/OLT2KExDEKhKlCmIobyRRHN6MFUS77fVs5gIt_FTnBI/450x450.jpg",
+              "width": 450,
+              "height": 450,
+              "alternateText": {
+                "defaultValue": "Brand logo",
+                "hasLocalizedValue": "true"
+              }
+            },
+            "constantValueEnabled": true
+          },
+          "styles": {
+            "borderRadius": "default"
+          },
+          "aspectRatio": 1,
+          "imageConstrain": "fixed"
+        },
+        "utilities": {
+          "show": true,
+          "items": [
+            {
+              "link": "#",
+              "label": "Item 1",
+              "linkType": "URL",
+              "iconImage": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "",
+                    "width": 0,
+                    "height": 0
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "borderRadius": "default"
+                },
+                "aspectRatio": 1,
+                "imageConstrain": "fixed"
+              },
+              "openInNewTab": false,
+              "normalizeLink": true
+            },
+            {
+              "link": "#",
+              "label": "Item 2",
+              "linkType": "URL",
+              "iconImage": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "",
+                    "width": 0,
+                    "height": 0
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "borderRadius": "default"
+                },
+                "aspectRatio": 1,
+                "imageConstrain": "fixed"
+              },
+              "openInNewTab": false,
+              "normalizeLink": true
+            },
+            {
+              "link": "#",
+              "label": "Item 3",
+              "linkType": "URL",
+              "iconImage": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "",
+                    "width": 0,
+                    "height": 0
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "borderRadius": "default"
+                },
+                "aspectRatio": 1,
+                "imageConstrain": "fixed"
+              },
+              "openInNewTab": false,
+              "normalizeLink": true
+            }
+          ]
+        },
+        "navigation": {
+          "show": true,
+          "links": [
+            {
+              "link": "#",
+              "label": "Link 1",
+              "linkType": "URL",
+              "openInNewTab": false,
+              "normalizeLink": true
+            },
+            {
+              "link": "#",
+              "label": "Link 2",
+              "linkType": "URL",
+              "openInNewTab": false,
+              "normalizeLink": true
+            },
+            {
+              "link": "#",
+              "label": "Link 3",
+              "linkType": "URL",
+              "openInNewTab": false,
+              "normalizeLink": true
+            }
+          ],
+          "styles": {
+            "fontSize": "default",
+            "fontStyle": "default",
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "includeCaret": "default",
+            "letterSpacing": "default",
+            "textTransform": "default"
+          },
+          "fontColor": {
+            "selectedColor": "white",
+            "contrastingColor": "palette-primary"
+          }
+        }
+      }
+    },
+    {
+      "type": "MainContent",
+      "props": {
+        "id": "MainContent-default",
+        "content": [
+          {
+            "type": "CafeAndCoffeeShopBreadcrumbs",
+            "props": {
+              "id": "CafeAndCoffeeShopBreadcrumbs-8c5792b0-08f6-4137-b50b-299da5bdd9f8",
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-primary",
+                  "contrastingColor": "palette-primary-contrast"
+                },
+                "visibleOnLivePage": true
+              },
+              "rootLabel": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "All Locations",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "currentLocation": {
+                "label": {
+                  "text": {
+                    "field": "name",
+                    "constantValue": {
+                      "defaultValue": "",
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": false
+                  },
+                  "styles": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "textTransform": "default"
+                  },
+                  "fontColor": {
+                    "selectedColor": "palette-secondary",
+                    "contrastingColor": "palette-secondary-contrast"
+                  }
+                },
+                "includeCurrentLocation": true
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopHero",
+            "props": {
+              "id": "CafeAndCoffeeShopHero-b943bc36-e1ef-4e17-8ff6-87984d2b1462",
+              "ctas": [
+                {
+                  "item": {
+                    "data": {
+                      "cta": {
+                        "field": "",
+                        "constantValue": {
+                          "link": {
+                            "defaultValue": "#"
+                          },
+                          "label": {
+                            "defaultValue": "Call Ahead"
+                          },
+                          "ctaType": "textAndLink"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "actionType": "link",
+                      "openInNewTab": false
+                    },
+                    "styles": {
+                      "link": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "includeCaret": "default",
+                        "letterSpacing": "default",
+                        "textTransform": "default"
+                      },
+                      "button": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "borderRadius": "default",
+                        "letterSpacing": "default",
+                        "textTransform": "default"
+                      },
+                      "variant": "primary"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "data": {
+                      "cta": {
+                        "field": "",
+                        "constantValue": {
+                          "link": {
+                            "defaultValue": "#"
+                          },
+                          "label": {
+                            "defaultValue": "Order Takeout"
+                          },
+                          "ctaType": "textAndLink"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "actionType": "link",
+                      "openInNewTab": false
+                    },
+                    "styles": {
+                      "link": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "includeCaret": "default",
+                        "letterSpacing": "default",
+                        "textTransform": "default"
+                      },
+                      "button": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "borderRadius": "default",
+                        "letterSpacing": "default",
+                        "textTransform": "default"
+                      },
+                      "variant": "primary"
+                    }
+                  }
+                },
+                {
+                  "item": {
+                    "data": {
+                      "cta": {
+                        "field": "",
+                        "constantValue": {
+                          "link": {
+                            "defaultValue": "#"
+                          },
+                          "label": {
+                            "defaultValue": "View Menu"
+                          },
+                          "ctaType": "textAndLink"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "actionType": "link",
+                      "openInNewTab": false
+                    },
+                    "styles": {
+                      "link": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "includeCaret": "default",
+                        "letterSpacing": "default",
+                        "textTransform": "default"
+                      },
+                      "button": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "borderRadius": "default",
+                        "letterSpacing": "default",
+                        "textTransform": "default"
+                      },
+                      "variant": "secondary"
+                    }
+                  }
+                }
+              ],
+              "hours": {
+                "hours": {
+                  "field": "hours",
+                  "constantValue": {},
+                  "constantValueEnabled": false
+                },
+                "hoursStyles": {
+                  "timeFormat": "12h",
+                  "showDayNames": true,
+                  "dayOfWeekFormat": "long",
+                  "showCurrentStatus": true,
+                  "openStatusTextColor": {
+                    "selectedColor": "[#2f7a38]",
+                    "contrastingColor": "white"
+                  },
+                  "closedStatusTextColor": {
+                    "selectedColor": "[#ffffff]",
+                    "contrastingColor": "black"
+                  },
+                  "openStatusBackgroundColor": {
+                    "selectedColor": "[#ffffff]",
+                    "contrastingColor": "black"
+                  },
+                  "closedStatusBackgroundColor": {
+                    "selectedColor": "[#1f2937]",
+                    "contrastingColor": "white"
+                  }
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "name",
+                  "constantValue": {
+                    "defaultValue": "",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": false
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-primary",
+                  "contrastingColor": "palette-primary-contrast"
+                },
+                "visibleOnLivePage": true
+              },
+              "background": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "https://a.mktgcdn.com/p/vQqhmnexQfZueJGyh5M_j5W4EcTkTyZlW93eIoqjjvQ/1900x1267.jpg",
+                    "width": 1900,
+                    "height": 1267,
+                    "alternateText": {
+                      "defaultValue": "Hero image",
+                      "hasLocalizedValue": "true"
+                    }
+                  },
+                  "constantValueEnabled": true
+                }
+              },
+              "subheading": {
+                "text": {
+                  "field": "geomodifier",
+                  "constantValue": {
+                    "defaultValue": "",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": false
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "reviewsRatingAndCount": {
+                "showStarsLabel": true
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopBanner",
+            "props": {
+              "id": "CafeAndCoffeeShopBanner-0e78419e-2417-46a3-bb8c-05fee424746d",
+              "data": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": {
+                      "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Banner Text</span></p>",
+                      "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Banner Text\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                    }
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "styles": {
+                "textAlignment": "center"
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-primary",
+                  "contrastingColor": "palette-primary-contrast"
+                },
+                "visibleOnLivePage": true
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopDetails",
+            "props": {
+              "id": "CafeAndCoffeeShopDetails-b278b8bd-0b0a-4081-9b77-bad62f27a9f1",
+              "hours": {
+                "hours": {
+                  "field": "hours",
+                  "constantValue": {},
+                  "constantValueEnabled": false
+                },
+                "subheading": {
+                  "text": {
+                    "field": "",
+                    "constantValue": {
+                      "defaultValue": "Dining Hours",
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "styles": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "textTransform": "default"
+                  }
+                },
+                "hoursStyles": {
+                  "alignment": "items-start",
+                  "startOfWeek": "monday",
+                  "collapseDays": false,
+                  "showAdditionalHoursText": false
+                }
+              },
+              "phone": {
+                "items": [
+                  {
+                    "label": "",
+                    "number": {
+                      "field": "",
+                      "constantValue": "",
+                      "constantValueEnabled": true
+                    }
+                  }
+                ],
+                "subheading": {
+                  "text": {
+                    "field": "",
+                    "constantValue": {
+                      "defaultValue": "Phone",
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "styles": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "textTransform": "default"
+                  }
+                },
+                "phoneFormat": "domestic",
+                "includeHyperlink": true
+              },
+              "address": {
+                "address": {
+                  "field": "address",
+                  "constantValue": {
+                    "city": "",
+                    "line1": "",
+                    "region": "",
+                    "postalCode": "",
+                    "countryCode": ""
+                  },
+                  "constantValueEnabled": false
+                },
+                "showRegion": true,
+                "subheading": {
+                  "text": {
+                    "field": "",
+                    "constantValue": {
+                      "defaultValue": "Address",
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "styles": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "textTransform": "default"
+                  }
+                },
+                "showCountry": false
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "Restaurant Details",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-primary",
+                  "contrastingColor": "palette-primary-contrast"
+                },
+                "visibleOnLivePage": true
+              },
+              "websiteLink": {
+                "data": {
+                  "cta": {
+                    "field": "",
+                    "constantValue": {
+                      "link": "#",
+                      "label": {
+                        "defaultValue": "CTA 1",
+                        "hasLocalizedValue": "true"
+                      },
+                      "ctaType": "textAndLink",
+                      "openInNewTab": false,
+                      "normalizeLink": true
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "actionType": "link",
+                  "openInNewTab": false
+                },
+                "styles": {
+                  "link": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "includeCaret": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "variant": "link"
+                }
+              },
+              "otherDetails": {
+                "items": [
+                  {
+                    "item": {
+                      "text": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Lorem: $ $",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "styles": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "textTransform": "default"
+                      }
+                    }
+                  },
+                  {
+                    "item": {
+                      "text": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Cuisine: Lorem ipsum, dolor sit amet",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "styles": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "textTransform": "default"
+                      }
+                    }
+                  },
+                  {
+                    "item": {
+                      "text": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Meals served: Lorem brunch, lunch, dinner",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "styles": {
+                        "fontSize": "default",
+                        "fontStyle": "default",
+                        "fontFamily": "default",
+                        "fontWeight": "default",
+                        "textTransform": "default"
+                      }
+                    }
+                  }
+                ],
+                "subheading": {
+                  "text": {
+                    "field": "",
+                    "constantValue": {
+                      "defaultValue": "Location Services",
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "styles": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "textTransform": "default"
+                  }
+                }
+              },
+              "directionsLink": {
+                "data": {
+                  "cta": {
+                    "field": "",
+                    "constantValue": {
+                      "link": "#",
+                      "label": {
+                        "defaultValue": "CTA 2",
+                        "hasLocalizedValue": "true"
+                      },
+                      "ctaType": "textAndLink",
+                      "openInNewTab": false,
+                      "normalizeLink": true
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "actionType": "link",
+                  "openInNewTab": false
+                },
+                "styles": {
+                  "link": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "includeCaret": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "variant": "link"
+                }
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopOfferings",
+            "props": {
+              "id": "CafeAndCoffeeShopOfferings-92204dc2-4bca-47fc-b9fa-4542dc6ceb67",
+              "content": {
+                "text": {
+                  "field": "",
+                  "constantValue": [
+                    "Lorem menu collection with ipsum plates and seasonal pours",
+                    "Dine-in",
+                    "Takeout"
+                  ],
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "Offerings",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-secondary",
+                  "contrastingColor": "palette-secondary-contrast"
+                },
+                "visibleOnLivePage": true
+              },
+              "sectionImage": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "https://a.mktgcdn.com/p/fbSbItkZpsHpkc8qHH7GxvQkWzxsfm6mGc0k4Lmfl-A/1267x1900.jpg",
+                    "width": 1267,
+                    "height": 1900,
+                    "alternateText": {
+                      "defaultValue": "Offering image",
+                      "hasLocalizedValue": "true"
+                    }
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "borderRadius": "default"
+                },
+                "aspectRatio": 1.5,
+                "imageConstrain": "filled"
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopAbout",
+            "props": {
+              "id": "CafeAndCoffeeShopAbout-ba46cb40-b024-4cf8-9966-d7445ae3265e",
+              "content": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "en": {
+                      "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus, urna eu feugiat efficitur, metus lectus fermentum magna, in suscipit lectus risus sed massa. Integer at eros non sapien gravida aliquet. Praesent vitae sem et ipsum sagittis scelerisque. Sed volutpat, nibh vitae fermentum ultricies, odio nunc condimentum tellus, vitae fringilla velit mi sed justo. Curabitur sodales libero vel augue sollicitudin, vitae mollis tortor pretium. Mauris pulvinar, felis nec interdum lacinia, nisl lorem gravida tellus, vitae eleifend massa lorem nec risus. Nunc aliquet ligula at dui ultrices, eget pharetra nunc pellentesque.</span></p>",
+                      "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus, urna eu feugiat efficitur, metus lectus fermentum magna, in suscipit lectus risus sed massa. Integer at eros non sapien gravida aliquet. Praesent vitae sem et ipsum sagittis scelerisque. Sed volutpat, nibh vitae fermentum ultricies, odio nunc condimentum tellus, vitae fringilla velit mi sed justo. Curabitur sodales libero vel augue sollicitudin, vitae mollis tortor pretium. Mauris pulvinar, felis nec interdum lacinia, nisl lorem gravida tellus, vitae eleifend massa lorem nec risus. Nunc aliquet ligula at dui ultrices, eget pharetra nunc pellentesque.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                    },
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "About Lorem Ipsum",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-secondary",
+                  "contrastingColor": "palette-secondary-contrast"
+                },
+                "visibleOnLivePage": true
+              },
+              "sectionImage": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "https://a.mktgcdn.com/p/UHR6VTEvcR-yDMqPSOS7LyK87Qt56EOrmfNbhLQxI08/1267x1900.jpg",
+                    "width": 1267,
+                    "height": 1900,
+                    "alternateText": {
+                      "defaultValue": "About image",
+                      "hasLocalizedValue": "true"
+                    }
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "borderRadius": "default"
+                },
+                "aspectRatio": 1.5,
+                "imageConstrain": "filled"
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopFeatured",
+            "props": {
+              "id": "CafeAndCoffeeShopFeatured-715538e4-e3ba-40c6-8328-39562097d44f",
+              "content": {
+                "items": {
+                  "field": "",
+                  "mappings": {
+                    "image": {
+                      "field": "",
+                      "constantValueEnabled": false
+                    },
+                    "title": {
+                      "field": "",
+                      "constantValueEnabled": false
+                    },
+                    "description": {
+                      "field": "",
+                      "constantValueEnabled": false
+                    }
+                  },
+                  "constantValue": [
+                    {
+                      "cta": {
+                        "data": {
+                          "cta": {
+                            "field": "",
+                            "selectedType": "textAndLink",
+                            "constantValue": {
+                              "link": {
+                                "defaultValue": "#",
+                                "hasLocalizedValue": "true"
+                              },
+                              "label": {
+                                "defaultValue": "Order Now",
+                                "hasLocalizedValue": "true"
+                              },
+                              "ctaType": "textAndLink",
+                              "linkType": "URL",
+                              "openInNewTab": false,
+                              "normalizeLink": true
+                            },
+                            "constantValueEnabled": true
+                          },
+                          "actionType": "link",
+                          "openInNewTab": false
+                        },
+                        "styles": {
+                          "button": {
+                            "fontSize": "default",
+                            "fontStyle": "default",
+                            "fontFamily": "default",
+                            "fontWeight": "default",
+                            "borderRadius": "default",
+                            "letterSpacing": "default",
+                            "textTransform": "default"
+                          },
+                          "variant": "primary"
+                        }
+                      },
+                      "image": {
+                        "field": "",
+                        "constantValue": {
+                          "url": "https://a.mktgcdn.com/p/Qdlacb36DqN5Lt3q6V9jw-qSMmbPyl_AeMEI_CyDkHc/1267x1900.jpg",
+                          "width": 1267,
+                          "height": 1900,
+                          "alternateText": {
+                            "defaultValue": "Featured item 1",
+                            "hasLocalizedValue": "true"
+                          }
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "title": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Seasonal Espresso Flight",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "description": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>A rotating trio of espresso pours selected to highlight bright, rich, and unexpected notes.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"A rotating trio of espresso pours selected to highlight bright, rich, and unexpected notes.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    },
+                    {
+                      "cta": {
+                        "data": {
+                          "cta": {
+                            "field": "",
+                            "selectedType": "textAndLink",
+                            "constantValue": {
+                              "link": {
+                                "defaultValue": "#",
+                                "hasLocalizedValue": "true"
+                              },
+                              "label": {
+                                "defaultValue": "See Menu",
+                                "hasLocalizedValue": "true"
+                              },
+                              "ctaType": "textAndLink",
+                              "linkType": "URL",
+                              "openInNewTab": false,
+                              "normalizeLink": true
+                            },
+                            "constantValueEnabled": true
+                          },
+                          "actionType": "link",
+                          "openInNewTab": false
+                        },
+                        "styles": {
+                          "button": {
+                            "fontSize": "default",
+                            "fontStyle": "default",
+                            "fontFamily": "default",
+                            "fontWeight": "default",
+                            "borderRadius": "default",
+                            "letterSpacing": "default",
+                            "textTransform": "default"
+                          },
+                          "variant": "primary"
+                        }
+                      },
+                      "image": {
+                        "field": "",
+                        "constantValue": {
+                          "url": "https://a.mktgcdn.com/p/UHR6VTEvcR-yDMqPSOS7LyK87Qt56EOrmfNbhLQxI08/1267x1900.jpg",
+                          "width": 1267,
+                          "height": 1900,
+                          "alternateText": {
+                            "defaultValue": "Featured item 2",
+                            "hasLocalizedValue": "true"
+                          }
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "title": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "House Pastry Pairing",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "description": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Flaky, buttery pastries baked daily and matched with the coffees they love most.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Flaky, buttery pastries baked daily and matched with the coffees they love most.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    },
+                    {
+                      "cta": {
+                        "data": {
+                          "cta": {
+                            "field": "",
+                            "selectedType": "textAndLink",
+                            "constantValue": {
+                              "link": {
+                                "defaultValue": "#",
+                                "hasLocalizedValue": "true"
+                              },
+                              "label": {
+                                "defaultValue": "Book a Table",
+                                "hasLocalizedValue": "true"
+                              },
+                              "ctaType": "textAndLink",
+                              "linkType": "URL",
+                              "openInNewTab": false,
+                              "normalizeLink": true
+                            },
+                            "constantValueEnabled": true
+                          },
+                          "actionType": "link",
+                          "openInNewTab": false
+                        },
+                        "styles": {
+                          "button": {
+                            "fontSize": "default",
+                            "fontStyle": "default",
+                            "fontFamily": "default",
+                            "fontWeight": "default",
+                            "borderRadius": "default",
+                            "letterSpacing": "default",
+                            "textTransform": "default"
+                          },
+                          "variant": "primary"
+                        }
+                      },
+                      "image": {
+                        "field": "",
+                        "constantValue": {
+                          "url": "https://a.mktgcdn.com/p/fbSbItkZpsHpkc8qHH7GxvQkWzxsfm6mGc0k4Lmfl-A/1267x1900.jpg",
+                          "width": 1267,
+                          "height": 1900,
+                          "alternateText": {
+                            "defaultValue": "Featured item 3",
+                            "hasLocalizedValue": "true"
+                          }
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "title": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Weekend Brunch Picks",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "description": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Coffee-forward brunch plates and signature drinks built for slower mornings and bigger groups.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Coffee-forward brunch plates and signature drinks built for slower mornings and bigger groups.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    }
+                  ],
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "image": {
+                    "aspectRatio": 1.25,
+                    "imageConstrain": "filled"
+                  },
+                  "title": {
+                    "styles": {
+                      "fontSize": "default",
+                      "fontStyle": "default",
+                      "fontFamily": "default",
+                      "fontWeight": "default",
+                      "textTransform": "default"
+                    }
+                  },
+                  "description": {
+                    "styles": {
+                      "fontSize": "default",
+                      "fontStyle": "default",
+                      "fontFamily": "default",
+                      "fontWeight": "default",
+                      "textTransform": "default"
+                    }
+                  },
+                  "backgroundColor": {
+                    "selectedColor": "palette-tertiary",
+                    "contrastingColor": "palette-tertiary-contrast"
+                  }
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "Featured Items",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-primary",
+                  "contrastingColor": "palette-primary-contrast"
+                },
+                "visibleOnLivePage": true
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopReviews",
+            "props": {
+              "id": "CafeAndCoffeeShopReviews-ff7a2be7-fa11-4bd3-9821-e9b7d624de0d",
+              "content": {
+                "rating": {
+                  "showStarsLabel": true
+                },
+                "subheading": {
+                  "text": {
+                    "field": "",
+                    "constantValue": {
+                      "defaultValue": "Recent Reviews:",
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": true
+                  },
+                  "styles": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "textTransform": "default"
+                  }
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "Reviews",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-secondary",
+                  "contrastingColor": "palette-secondary-contrast"
+                },
+                "visibleOnLivePage": true
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopEvents",
+            "props": {
+              "id": "CafeAndCoffeeShopEvents-0f9b75ac-21b2-4415-a1a6-88e968034a62",
+              "content": {
+                "button": {
+                  "data": {
+                    "cta": {
+                      "field": "",
+                      "constantValue": {
+                        "link": {
+                          "defaultValue": "#"
+                        },
+                        "label": {
+                          "defaultValue": "Plan Your Event"
+                        },
+                        "openInNewTab": false,
+                        "normalizeLink": true
+                      },
+                      "constantValueEnabled": true
+                    },
+                    "actionType": "link",
+                    "openInNewTab": false
+                  },
+                  "styles": {
+                    "button": {
+                      "fontSize": "default",
+                      "fontStyle": "default",
+                      "fontFamily": "default",
+                      "fontWeight": "default",
+                      "borderRadius": "default",
+                      "letterSpacing": "default",
+                      "textTransform": "default"
+                    },
+                    "variant": "secondary"
+                  }
+                },
+                "paragraphs": {
+                  "text": {
+                    "field": "",
+                    "constantValue": {
+                      "en": {
+                        "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Bring your crew together for birthdays, office parties, and laid-back celebrations in a warm neighborhood setting. Our team can help you plan food, drinks, and space that fit the vibe of your group.</span></p>",
+                        "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Bring your crew together for birthdays, office parties, and laid-back celebrations in a warm neighborhood setting. Our team can help you plan food, drinks, and space that fit the vibe of your group.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                      },
+                      "hasLocalizedValue": "true"
+                    },
+                    "constantValueEnabled": true
+                  }
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "Host Your Next Group Event",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-tertiary",
+                  "contrastingColor": "palette-tertiary-contrast"
+                },
+                "visibleOnLivePage": true
+              },
+              "sectionImage": {
+                "image": {
+                  "field": "",
+                  "constantValue": {
+                    "url": "https://a.mktgcdn.com/p/fbSbItkZpsHpkc8qHH7GxvQkWzxsfm6mGc0k4Lmfl-A/1267x1900.jpg",
+                    "width": 1267,
+                    "height": 1900,
+                    "alternateText": {
+                      "defaultValue": "Event image",
+                      "hasLocalizedValue": "true"
+                    }
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "borderRadius": "default"
+                },
+                "aspectRatio": 1.5,
+                "imageConstrain": "filled"
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopFaq",
+            "props": {
+              "id": "CafeAndCoffeeShopFaq-a058c0eb-8579-4510-bbde-fb3e5918cd35",
+              "content": {
+                "faqs": {
+                  "field": "",
+                  "mappings": {
+                    "answer": {
+                      "field": "",
+                      "constantValueEnabled": false
+                    },
+                    "question": {
+                      "field": "",
+                      "constantValueEnabled": false
+                    }
+                  },
+                  "constantValue": [
+                    {
+                      "answer": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat interdum ante, eu convallis nibh feugiat a. Suspendisse potenti.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat interdum ante, eu convallis nibh feugiat a. Suspendisse potenti.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "question": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Are your dining hours the same as takeout hours?",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    },
+                    {
+                      "answer": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Nulla facilisi.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Nulla facilisi.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "question": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Can I order online?",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    },
+                    {
+                      "answer": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "question": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Do you take reservations?",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    },
+                    {
+                      "answer": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": {
+                            "html": "<p dir=\"ltr\" style=\"font-size: 14.67px; font-weight: 400; line-height: 18.67px; margin: 0; padding: 3px 2px 3px 2px; position: relative;\"><span>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Mauris porta lorem ut felis fermentum.</span></p>",
+                            "json": "{\"root\":{\"children\":[{\"children\":[{\"detail\":0,\"format\":0,\"mode\":\"normal\",\"style\":\"\",\"text\":\"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur. Mauris porta lorem ut felis fermentum.\",\"type\":\"text\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"paragraph\",\"version\":1}],\"direction\":\"ltr\",\"format\":\"\",\"indent\":0,\"type\":\"root\",\"version\":1}}"
+                          },
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      },
+                      "question": {
+                        "field": "",
+                        "constantValue": {
+                          "defaultValue": "Do you offer vegetarian options?",
+                          "hasLocalizedValue": "true"
+                        },
+                        "constantValueEnabled": true
+                      }
+                    }
+                  ],
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "answer": {
+                    "styles": {
+                      "fontSize": "default",
+                      "fontStyle": "default",
+                      "fontFamily": "default",
+                      "fontWeight": "default",
+                      "textTransform": "default"
+                    }
+                  },
+                  "question": {
+                    "styles": {
+                      "fontSize": "default",
+                      "fontStyle": "default",
+                      "fontFamily": "default",
+                      "fontWeight": "default",
+                      "textTransform": "default"
+                    }
+                  },
+                  "backgroundColor": {
+                    "selectedColor": "palette-primary",
+                    "contrastingColor": "palette-primary-contrast"
+                  }
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": {
+                    "defaultValue": "FAQs",
+                    "hasLocalizedValue": "true"
+                  },
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-primary",
+                  "contrastingColor": "palette-primary-contrast"
+                },
+                "visibleOnLivePage": true
+              }
+            }
+          },
+          {
+            "type": "CafeAndCoffeeShopLocations",
+            "props": {
+              "id": "CafeAndCoffeeShopLocations-ea5a7960-4e3e-4a44-9ced-ef10fd94b81f",
+              "map": {
+                "zoom": 13,
+                "mapStyle": "streets-v12",
+                "coordinate": {
+                  "field": "yextDisplayCoordinate",
+                  "constantValue": {
+                    "latitude": 0,
+                    "longitude": 0
+                  },
+                  "constantValueEnabled": false
+                }
+              },
+              "nearby": {
+                "limit": 3,
+                "phone": {
+                  "phoneFormat": "domestic",
+                  "includeHyperlink": true
+                },
+                "address": {
+                  "showRegion": true,
+                  "showCountry": false
+                },
+                "content": {
+                  "emptyText": {
+                    "field": "",
+                    "constantValue": "No nearby locations found for this location",
+                    "constantValueEnabled": true
+                  },
+                  "loadingText": {
+                    "field": "",
+                    "constantValue": "Loading nearby locations",
+                    "constantValueEnabled": true
+                  },
+                  "directionsLabel": {
+                    "field": "",
+                    "constantValue": "Get Directions",
+                    "constantValueEnabled": true
+                  },
+                  "distanceTemplateMiles": {
+                    "field": "",
+                    "constantValue": "Located {distance} miles from this location",
+                    "constantValueEnabled": true
+                  },
+                  "distanceTemplateKilometers": {
+                    "field": "",
+                    "constantValue": "Located {distance} km from this location",
+                    "constantValueEnabled": true
+                  },
+                  "nearbyLocationFallbackName": {
+                    "field": "",
+                    "constantValue": "Nearby Location",
+                    "constantValueEnabled": true
+                  }
+                },
+                "radiusMi": 10,
+                "showHours": true,
+                "showPhone": true,
+                "hoursStyles": {
+                  "timeFormat": "12h",
+                  "showDayNames": true,
+                  "dayOfWeekFormat": "long",
+                  "showCurrentStatus": true
+                },
+                "showAddress": true,
+                "cardBackgroundColor": {
+                  "selectedColor": "palette-secondary",
+                  "contrastingColor": "palette-secondary-contrast"
+                }
+              },
+              "heading": {
+                "text": {
+                  "field": "",
+                  "constantValue": "Where To Find Us",
+                  "constantValueEnabled": true
+                },
+                "styles": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "textTransform": "default"
+                }
+              },
+              "section": {
+                "backgroundColor": {
+                  "selectedColor": "palette-secondary",
+                  "contrastingColor": "palette-secondary-contrast"
+                },
+                "visibleOnLivePage": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "CafeAndCoffeeShopFooter",
+      "props": {
+        "id": "CafeAndCoffeeShopFooter-4b21d256-2218-4be2-be24-f6c00fcba422",
+        "brand": {
+          "name": {
+            "text": {
+              "field": "name",
+              "constantValue": {
+                "defaultValue": "Redwood Burger Co.",
+                "hasLocalizedValue": "true"
+              },
+              "constantValueEnabled": false
+            },
+            "styles": {
+              "fontSize": "default",
+              "fontStyle": "default",
+              "fontFamily": "default",
+              "fontWeight": "default",
+              "textTransform": "default"
+            }
+          }
+        },
+        "section": {
+          "backgroundColor": {
+            "selectedColor": "palette-secondary",
+            "contrastingColor": "palette-secondary-contrast"
+          },
+          "visibleOnLivePage": true
+        },
+        "appBadges": {
+          "items": [
+            {
+              "cta": {
+                "data": {
+                  "cta": {
+                    "field": "",
+                    "openInNewTab": false,
+                    "constantValue": {
+                      "link": {
+                        "defaultValue": "#",
+                        "hasLocalizedValue": "true"
+                      },
+                      "label": {
+                        "defaultValue": "Download on the App Store",
+                        "hasLocalizedValue": "true"
+                      },
+                      "ctaType": "presetImage",
+                      "openInNewTab": false,
+                      "normalizeLink": true
+                    },
+                    "normalizeLink": true,
+                    "constantValueEnabled": true
+                  },
+                  "actionType": "link",
+                  "openInNewTab": false
+                },
+                "styles": {
+                  "link": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "includeCaret": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "button": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "borderRadius": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "variant": "link",
+                  "presetImage": "app-store"
+                }
+              }
+            },
+            {
+              "cta": {
+                "data": {
+                  "cta": {
+                    "field": "",
+                    "openInNewTab": false,
+                    "constantValue": {
+                      "link": {
+                        "defaultValue": "#",
+                        "hasLocalizedValue": "true"
+                      },
+                      "label": {
+                        "defaultValue": "Get it on Google Play",
+                        "hasLocalizedValue": "true"
+                      },
+                      "ctaType": "presetImage",
+                      "openInNewTab": false,
+                      "normalizeLink": true
+                    },
+                    "normalizeLink": true,
+                    "constantValueEnabled": true
+                  },
+                  "actionType": "link",
+                  "openInNewTab": false
+                },
+                "styles": {
+                  "link": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "includeCaret": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "button": {
+                    "fontSize": "default",
+                    "fontStyle": "default",
+                    "fontFamily": "default",
+                    "fontWeight": "default",
+                    "borderRadius": "default",
+                    "letterSpacing": "default",
+                    "textTransform": "default"
+                  },
+                  "variant": "link",
+                  "presetImage": "google-play"
+                }
+              }
+            }
+          ]
+        },
+        "copyright": {
+          "text": {
+            "field": "",
+            "constantValue": {
+              "defaultValue": "© 2026 {{name}}",
+              "hasLocalizedValue": "true"
+            },
+            "constantValueEnabled": true
+          },
+          "styles": {
+            "fontSize": "default",
+            "fontStyle": "default",
+            "fontFamily": "default",
+            "fontWeight": "default",
+            "textTransform": "default"
+          }
+        },
+        "legalLinks": [
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Privacy",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Terms",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Accessibility",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          }
+        ],
+        "footerLinks": [
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Menu",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Order Online",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Reservations",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Group Events",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Catering",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Careers",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Gift Cards",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          },
+          {
+            "cta": {
+              "data": {
+                "cta": {
+                  "field": "",
+                  "openInNewTab": false,
+                  "constantValue": {
+                    "link": {
+                      "defaultValue": "#",
+                      "hasLocalizedValue": "true"
+                    },
+                    "label": {
+                      "defaultValue": "Contact",
+                      "hasLocalizedValue": "true"
+                    },
+                    "ctaType": "textAndLink",
+                    "openInNewTab": false,
+                    "normalizeLink": true
+                  },
+                  "normalizeLink": true,
+                  "constantValueEnabled": true
+                },
+                "actionType": "link",
+                "openInNewTab": false
+              },
+              "styles": {
+                "link": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "includeCaret": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "button": {
+                  "fontSize": "default",
+                  "fontStyle": "default",
+                  "fontFamily": "default",
+                  "fontWeight": "default",
+                  "borderRadius": "default",
+                  "letterSpacing": "default",
+                  "textTransform": "default"
+                },
+                "variant": "link"
+              }
+            }
+          }
+        ],
+        "socialLinks": [
+          {
+            "link": {
+              "defaultValue": "#",
+              "hasLocalizedValue": "true"
+            },
+            "linkType": "URL",
+            "iconImage": {
+              "image": {
+                "field": "",
+                "constantValue": {
+                  "url": "https://a.mktgcdn.com/p/7tT2mgF7Uz5xFTl-R7a6dQd9CvX7EzacDF6BlpTO71c/2084x2084.png",
+                  "width": 2084,
+                  "height": 2084,
+                  "alternateText": {
+                    "defaultValue": "Facebook",
+                    "hasLocalizedValue": "true"
+                  }
+                },
+                "constantValueEnabled": true
+              }
+            },
+            "openInNewTab": false,
+            "normalizeLink": true
+          },
+          {
+            "link": {
+              "defaultValue": "#",
+              "hasLocalizedValue": "true"
+            },
+            "linkType": "URL",
+            "iconImage": {
+              "image": {
+                "field": "",
+                "constantValue": {
+                  "url": "https://a.mktgcdn.com/p/yTPPH5E_uAQyzqBbeK3FqmsFtBJXzbz_zWKkkz3F3pg/800x800.png",
+                  "width": 800,
+                  "height": 800,
+                  "alternateText": {
+                    "defaultValue": "Instagram",
+                    "hasLocalizedValue": "true"
+                  }
+                },
+                "constantValueEnabled": true
+              }
+            },
+            "openInNewTab": false,
+            "normalizeLink": true
+          },
+          {
+            "link": {
+              "defaultValue": "#",
+              "hasLocalizedValue": "true"
+            },
+            "linkType": "URL",
+            "iconImage": {
+              "image": {
+                "field": "",
+                "constantValue": {
+                  "url": "https://a.mktgcdn.com/p/5somDf8PPy-sFAiMAtBBvW0k_MfdIluteCfmjQ42sgc/800x1002.png",
+                  "width": 800,
+                  "height": 1002,
+                  "alternateText": {
+                    "defaultValue": "Yelp",
+                    "hasLocalizedValue": "true"
+                  }
+                },
+                "constantValueEnabled": true
+              }
+            },
+            "openInNewTab": false,
+            "normalizeLink": true
+          }
+        ]
+      }
+    }
+  ]
+}
