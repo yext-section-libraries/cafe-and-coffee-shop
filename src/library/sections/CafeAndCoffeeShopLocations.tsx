@@ -9,6 +9,7 @@ import type {
   StatusParams,
 } from "@yext/pages-components";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import {
   Address,
   AnalyticsScopeProvider,
@@ -18,6 +19,7 @@ import {
   getDirections,
 } from "@yext/pages-components";
 import {
+  msg,
   EntityField,
   getAnalyticsScopeHash,
   getPreferredDistanceUnit,
@@ -397,61 +399,61 @@ type RuntimeProps = CafeAndCoffeeShopLocationsProps & {
 
 const fields: YextFields<CafeAndCoffeeShopLocationsProps> = {
   section: {
-    label: "Section",
+    label: msg("fields.section", "Section"),
     type: "object",
     objectFields: {
       backgroundColor: {
-        label: "Background Color",
+        label: msg("fields.backgroundColor", "Background Color"),
         type: "basicSelector",
         options: "BACKGROUND_COLOR",
       },
       visibleOnLivePage: {
-        label: "Visible on Live Page",
+        label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
         type: "radio",
         options: [
-          { label: "Yes", value: true },
-          { label: "No", value: false },
+          { label: msg("fields.options.yes", "Yes"), value: true },
+          { label: msg("fields.options.no", "No"), value: false },
         ],
       },
     },
   },
   heading: {
-    label: "Heading",
+    label: msg("fields.heading", "Heading"),
     type: "object",
     objectFields: {
       text: {
-        label: "Heading",
+        label: msg("fields.heading", "Heading"),
         type: "entityField",
         filter: { includeListsOnly: false, types: ["type.string"] },
         disableConstantValueToggle: false,
       },
       styles: {
-        label: "Text Styles",
+        label: msg("fields.textStyles", "Text Styles"),
         type: "styledText",
       },
       fontColor: {
-        label: "Font Color",
+        label: msg("fields.fontColor", "Font Color"),
         type: "basicSelector",
         options: "SITE_COLOR",
       },
     },
   },
   map: {
-    label: "Map",
+    label: msg("fields.map", "Map"),
     type: "object",
     objectFields: {
       coordinate: {
         type: "entityField",
-        label: "Coordinates",
+        label: msg("fields.coordinates", "Coordinates"),
         filter: { types: ["type.coordinate"] },
       },
       mapStyle: {
-        label: "Mapbox Map Style",
+        label: msg("fields.mapboxMapStyle", "Mapbox Map Style"),
         type: "select",
         options: mapboxStaticMapStyleOptions,
       },
       zoom: {
-        label: "Zoom",
+        label: msg("fields.zoom", "Zoom"),
         type: "number",
         min: 0,
         max: 22,
@@ -459,106 +461,106 @@ const fields: YextFields<CafeAndCoffeeShopLocationsProps> = {
     },
   },
   nearby: {
-    label: "Nearby Locations",
+    label: msg("fields.nearbyLocations", "Nearby Locations"),
     type: "object",
     objectFields: {
       radiusMi: {
-        label: "Radius (mi)",
+        label: msg("fields.radiusMi", "Radius (mi)"),
         type: "number",
         min: 1,
         max: 100,
       },
       limit: {
-        label: "Result Limit",
+        label: msg("fields.resultLimit", "Result Limit"),
         type: "number",
         min: 1,
         max: 12,
       },
       cardBackgroundColor: {
-        label: "Background Color",
+        label: msg("fields.backgroundColor", "Background Color"),
         type: "basicSelector",
         options: "BACKGROUND_COLOR",
       },
       cardTitleColor: {
-        label: "Title Color",
+        label: msg("fields.titleColor", "Title Color"),
         type: "basicSelector",
         options: "SITE_COLOR",
       },
       cardDetailColor: {
-        label: "Detail Color",
+        label: msg("fields.detailColor", "Detail Color"),
         type: "basicSelector",
         options: "SITE_COLOR",
       },
       statusColor: {
-        label: "Status Color",
+        label: msg("fields.statusColor", "Status Color"),
         type: "basicSelector",
         options: "SITE_COLOR",
       },
       ctaColor: {
-        label: "CTA Color",
+        label: msg("fields.ctaColor", "CTA Color"),
         type: "basicSelector",
         options: "SITE_COLOR",
       },
       showHours: {
-        label: "Show Hours",
+        label: msg("fields.showHours", "Show Hours"),
         type: "radio",
         options: [
-          { label: "Yes", value: true },
-          { label: "No", value: false },
+          { label: msg("fields.options.yes", "Yes"), value: true },
+          { label: msg("fields.options.no", "No"), value: false },
         ],
       },
       showPhone: {
-        label: "Show Phone",
+        label: msg("fields.showPhone", "Show Phone"),
         type: "radio",
         options: [
-          { label: "Yes", value: true },
-          { label: "No", value: false },
+          { label: msg("fields.options.yes", "Yes"), value: true },
+          { label: msg("fields.options.no", "No"), value: false },
         ],
       },
       showAddress: {
-        label: "Show Address",
+        label: msg("fields.showAddress", "Show Address"),
         type: "radio",
         options: [
-          { label: "Yes", value: true },
-          { label: "No", value: false },
+          { label: msg("fields.options.yes", "Yes"), value: true },
+          { label: msg("fields.options.no", "No"), value: false },
         ],
       },
       content: {
-        label: "Content",
+        label: msg("fields.content", "Content"),
         type: "object",
         objectFields: {
           loadingText: {
-            label: "Loading Text",
+            label: msg("fields.loadingText", "Loading Text"),
             type: "entityField",
             filter: { includeListsOnly: false, types: ["type.string"] },
             disableConstantValueToggle: false,
           },
           emptyText: {
-            label: "Empty State Text",
+            label: msg("fields.emptyStateText", "Empty State Text"),
             type: "entityField",
             filter: { includeListsOnly: false, types: ["type.string"] },
             disableConstantValueToggle: false,
           },
           nearbyLocationFallbackName: {
-            label: "Fallback Location Name",
+            label: msg("fields.fallbackLocationName", "Fallback Location Name"),
             type: "entityField",
             filter: { includeListsOnly: false, types: ["type.string"] },
             disableConstantValueToggle: false,
           },
           directionsLabel: {
-            label: "Directions Label",
+            label: msg("fields.directionsLabel", "Directions Label"),
             type: "entityField",
             filter: { includeListsOnly: false, types: ["type.string"] },
             disableConstantValueToggle: false,
           },
           distanceTemplateMiles: {
-            label: "Distance Template (Miles)",
+            label: msg("fields.distanceTemplateMiles", "Distance Template (Miles)"),
             type: "entityField",
             filter: { includeListsOnly: false, types: ["type.string"] },
             disableConstantValueToggle: false,
           },
           distanceTemplateKilometers: {
-            label: "Distance Template (Kilometers)",
+            label: msg("fields.distanceTemplateKilometers", "Distance Template (Kilometers)"),
             type: "entityField",
             filter: { includeListsOnly: false, types: ["type.string"] },
             disableConstantValueToggle: false,
@@ -566,83 +568,83 @@ const fields: YextFields<CafeAndCoffeeShopLocationsProps> = {
         },
       },
       hoursStyles: {
-        label: "Hours Styles",
+        label: msg("fields.hoursStyles", "Hours Styles"),
         type: "object",
         objectFields: {
           showCurrentStatus: {
-            label: "Show Current Status",
+            label: msg("fields.showCurrentStatus", "Show Current Status"),
             type: "radio",
             options: [
-              { label: "Yes", value: true },
-              { label: "No", value: false },
+              { label: msg("fields.options.yes", "Yes"), value: true },
+              { label: msg("fields.options.no", "No"), value: false },
             ],
           },
           timeFormat: {
-            label: "Time Format",
+            label: msg("fields.timeFormat", "Time Format"),
             type: "select",
             options: [
-              { label: "12 Hour", value: "12h" },
-              { label: "24 Hour", value: "24h" },
+              { label: msg("fields.options.hour12Label", "12 Hour"), value: "12h" },
+              { label: msg("fields.options.hour24Label", "24 Hour"), value: "24h" },
             ],
           },
           dayOfWeekFormat: {
-            label: "Day Of Week Format",
+            label: msg("fields.dayOfWeekFormatLabel", "Day Of Week Format"),
             type: "select",
             options: [
-              { label: "Short", value: "short" },
-              { label: "Long", value: "long" },
+              { label: msg("fields.options.short", "Short"), value: "short" },
+              { label: msg("fields.options.long", "Long"), value: "long" },
             ],
           },
           showDayNames: {
-            label: "Show Day Names",
+            label: msg("fields.showDayNames", "Show Day Names"),
             type: "radio",
             options: [
-              { label: "Yes", value: true },
-              { label: "No", value: false },
+              { label: msg("fields.options.yes", "Yes"), value: true },
+              { label: msg("fields.options.no", "No"), value: false },
             ],
           },
         },
       },
       phone: {
-        label: "Phone",
+        label: msg("fields.phone", "Phone"),
         type: "object",
         objectFields: {
           phoneFormat: {
-            label: "Phone Number Format",
+            label: msg("fields.phoneNumberFormat", "Phone Number Format"),
             type: "radio",
             options: [
-              { label: "Domestic", value: "domestic" },
-              { label: "International", value: "international" },
+              { label: msg("fields.options.domestic", "Domestic"), value: "domestic" },
+              { label: msg("fields.options.international", "International"), value: "international" },
             ],
           },
           includeHyperlink: {
-            label: "Include Phone Hyperlink",
+            label: msg("fields.includePhoneHyperlink", "Include Phone Hyperlink"),
             type: "radio",
             options: [
-              { label: "Yes", value: true },
-              { label: "No", value: false },
+              { label: msg("fields.options.yes", "Yes"), value: true },
+              { label: msg("fields.options.no", "No"), value: false },
             ],
           },
         },
       },
       address: {
-        label: "Address",
+        label: msg("fields.address", "Address"),
         type: "object",
         objectFields: {
           showRegion: {
-            label: "Show Region",
+            label: msg("fields.showRegion", "Show Region"),
             type: "radio",
             options: [
-              { label: "Yes", value: true },
-              { label: "No", value: false },
+              { label: msg("fields.options.yes", "Yes"), value: true },
+              { label: msg("fields.options.no", "No"), value: false },
             ],
           },
           showCountry: {
-            label: "Show Country",
+            label: msg("fields.showCountry", "Show Country"),
             type: "radio",
             options: [
-              { label: "Yes", value: true },
-              { label: "No", value: false },
+              { label: msg("fields.options.yes", "Yes"), value: true },
+              { label: msg("fields.options.no", "No"), value: false },
             ],
           },
         },
@@ -1190,6 +1192,7 @@ const NearbyLocationsContent = ({
 };
 
 const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
+  const { t } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
   const { relativePrefixToRoot } = useTemplateProps<{
     relativePrefixToRoot?: string;
@@ -1318,7 +1321,7 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
           <section
             id="locations-section"
             className="local-section section-locations"
-            aria-label="Where to find us"
+            aria-label={t("whereToFindUs", "Where to find us")}
             style={sectionStyle}
           >
             <div className="locations__wrap">
@@ -1438,7 +1441,7 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
 
 export const CafeAndCoffeeShopLocations: YextComponentConfig<CafeAndCoffeeShopLocationsProps> =
   {
-    label: "Locations",
+    label: msg("fields.locations", "Locations"),
     fields,
     defaultProps,
     render: (props) => (

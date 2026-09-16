@@ -2,8 +2,10 @@ import type { SectionConfig } from "@yext/visual-editor";
 
 import type { PuckComponent } from "@puckeditor/core";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { AnalyticsScopeProvider } from "@yext/pages-components";
 import {
+  msg,
   Background,
   createItemSource,
   getAnalyticsScopeHash,
@@ -288,17 +290,17 @@ type TextAppearance = {
 };
 
 const faqSource = createItemSource<FaqItemProps>({
-  label: "FAQs",
+  label: msg("fields.faqs", "FAQs"),
   mappingFields: {
     question: {
-      label: "Question",
+      label: msg("fields.question", "Question"),
       type: "entityField",
       filter: {
         types: ["type.string"],
       },
     },
     answer: {
-      label: "Answer",
+      label: msg("fields.answer", "Answer"),
       type: "entityField",
       filter: {
         types: ["type.rich_text_v2"],
@@ -369,7 +371,7 @@ const createTextAppearance = (): TextAppearance => ({
 
 const createStyledTextFields = (): YextFields<StyledTextProps> => ({
   text: {
-    label: "Text",
+    label: msg("fields.text", "Text"),
     type: "entityField",
     filter: {
       types: ["type.string"],
@@ -377,11 +379,11 @@ const createStyledTextFields = (): YextFields<StyledTextProps> => ({
     disableConstantValueToggle: false,
   },
   styles: {
-    label: "Text Styles",
+    label: msg("fields.textStyles", "Text Styles"),
     type: "styledText",
   },
   fontColor: {
-    label: "Font Color",
+    label: msg("fields.fontColor", "Font Color"),
     type: "basicSelector",
     options: "SITE_COLOR",
   },
@@ -389,11 +391,11 @@ const createStyledTextFields = (): YextFields<StyledTextProps> => ({
 
 const createTextAppearanceFields = (): YextFields<TextAppearance> => ({
   styles: {
-    label: "Text Styles",
+    label: msg("fields.textStyles", "Text Styles"),
     type: "styledText",
   },
   fontColor: {
-    label: "Font Color",
+    label: msg("fields.fontColor", "Font Color"),
     type: "basicSelector",
     options: "SITE_COLOR",
   },
@@ -405,53 +407,53 @@ const faqTextFields = createTextAppearanceFields();
 export const CafeAndCoffeeShopFaqFields: YextFields<CafeAndCoffeeShopFaqProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
       },
     },
     heading: {
-      label: "Heading",
+      label: msg("fields.heading", "Heading"),
       type: "object",
       objectFields: headingFields,
     },
     content: {
-      label: "Content",
+      label: msg("fields.content", "Content"),
       type: "object",
       objectFields: {
         faqs: {
-          label: "FAQs",
+          label: msg("fields.faqs", "FAQs"),
           ...faqSource.field,
         },
         styles: {
-          label: "Styles",
+          label: msg("fields.styles", "Styles"),
           type: "object",
           objectFields: {
             backgroundColor: {
-              label: "Background Color",
+              label: msg("fields.backgroundColor", "Background Color"),
               type: "basicSelector",
               options: "BACKGROUND_COLOR",
             },
             question: {
-              label: "Question",
+              label: msg("fields.question", "Question"),
               type: "object",
               objectFields: faqTextFields,
             },
             answer: {
-              label: "Answer",
+              label: msg("fields.answer", "Answer"),
               type: "object",
               objectFields: faqTextFields,
             },
@@ -487,6 +489,7 @@ export const CafeAndCoffeeShopFaqDefaultProps: CafeAndCoffeeShopFaqProps =
 const CafeAndCoffeeShopFaqComponent: PuckComponent<
   CafeAndCoffeeShopFaqProps
 > = (props) => {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = React.useState(0);
   const streamDocument = useDocument<StreamDocument>();
   const locale = streamDocument?.locale ?? "en";
@@ -542,7 +545,7 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
           <Background
             id="faqs-section"
             className="local-section section-faqs"
-            aria-label="FAQs"
+            aria-label={t("fields.faqs", "FAQs")}
             background={props.section.backgroundColor}
             style={sectionStyle}
           >
@@ -652,7 +655,7 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
 
 export const CafeAndCoffeeShopFaq: YextComponentConfig<CafeAndCoffeeShopFaqProps> =
   {
-    label: "FAQ",
+    label: msg("components.faq", "FAQ"),
     fields: CafeAndCoffeeShopFaqFields,
     defaultProps: CafeAndCoffeeShopFaqDefaultProps,
     render: (props) => <CafeAndCoffeeShopFaqComponent {...props} />,

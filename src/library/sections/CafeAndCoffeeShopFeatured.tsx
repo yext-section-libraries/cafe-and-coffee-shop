@@ -410,24 +410,24 @@ const imageAppearanceFields = (): YextFields<FeaturedCardImageAppearance> => ({
     ],
   },
   imageConstrain: {
-    label: "Image Constrain",
+    label: msg("fields.imageConstrain", "Image Constrain"),
     type: "select",
     options: [
-      { label: "Fixed", value: "fixed" },
-      { label: "Filled", value: "filled" },
+      { label: msg("fields.options.fixed", "Fixed"), value: "fixed" },
+      { label: msg("fields.options.filled", "Filled"), value: "filled" },
     ],
   },
 });
 
 const textAppearanceFields = (
-  label: string,
+  stylesLabel: string,
 ): YextFields<FeaturedCardTextAppearance> => ({
   styles: {
-    label: `${label} Styles`,
+    label: stylesLabel,
     type: "styledText",
   },
   fontColor: {
-    label: "Font Color",
+    label: msg("fields.fontColor", "Font Color"),
     type: "basicSelector",
     options: "SITE_COLOR",
   },
@@ -463,10 +463,10 @@ const defaultFeaturedImage: FeaturedCardImageAppearance = {
 };
 
 const featuredSource = createItemSource<FeaturedCardItem>({
-  label: "Featured Cards",
+  label: msg("fields.featuredCards", "Featured Cards"),
   mappingFields: {
     image: {
-      label: "Card Image",
+      label: msg("fields.cardImage", "Card Image"),
       type: "entityField",
       filter: {
         types: ["type.image"],
@@ -474,7 +474,7 @@ const featuredSource = createItemSource<FeaturedCardItem>({
       disableConstantValueToggle: false,
     },
     title: {
-      label: "Title",
+      label: msg("fields.title", "Title"),
       type: "entityField",
       filter: {
         includeListsOnly: false,
@@ -483,7 +483,7 @@ const featuredSource = createItemSource<FeaturedCardItem>({
       disableConstantValueToggle: false,
     },
     description: {
-      label: "Description",
+      label: msg("fields.description", "Description"),
       type: "entityField",
       filter: {
         types: ["type.rich_text_v2"],
@@ -491,7 +491,7 @@ const featuredSource = createItemSource<FeaturedCardItem>({
       disableConstantValueToggle: false,
     },
     cta: {
-      label: "Call to Action",
+      label: msg("fields.callToAction", "Call to Action"),
       type: "comprehensiveCTA",
       disableConstantValueToggle: false,
     },
@@ -502,30 +502,30 @@ const featuredSource = createItemSource<FeaturedCardItem>({
 export const CafeAndCoffeeShopFeaturedFields: YextFields<CafeAndCoffeeShopFeaturedProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
       },
     },
     heading: {
-      label: "Heading",
+      label: msg("fields.heading", "Heading"),
       type: "object",
       objectFields: {
         text: {
-          label: "Heading",
+          label: msg("fields.heading", "Heading"),
           type: "entityField",
           filter: {
             includeListsOnly: false,
@@ -534,47 +534,51 @@ export const CafeAndCoffeeShopFeaturedFields: YextFields<CafeAndCoffeeShopFeatur
           disableConstantValueToggle: false,
         },
         styles: {
-          label: "Text Styles",
+          label: msg("fields.textStyles", "Text Styles"),
           type: "styledText",
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     content: {
-      label: "Content",
+      label: msg("fields.content", "Content"),
       type: "object",
       objectFields: {
         items: {
-          label: "Cards",
+          label: msg("fields.cards", "Cards"),
           ...featuredSource.field,
         },
         styles: {
-          label: "Styles",
+          label: msg("fields.styles", "Styles"),
           type: "object",
           objectFields: {
             backgroundColor: {
-              label: "Card Background Color",
+              label: msg("fields.cardBackgroundColor", "Card Background Color"),
               type: "basicSelector",
               options: "BACKGROUND_COLOR",
             },
             image: {
-              label: "Image",
+              label: msg("fields.image", "Image"),
               type: "object",
               objectFields: imageAppearanceFields(),
             },
             title: {
-              label: "Title",
+              label: msg("fields.title", "Title"),
               type: "object",
-              objectFields: textAppearanceFields("Title"),
+              objectFields: textAppearanceFields(
+                msg("fields.titleStyles", "Title Styles"),
+              ),
             },
             description: {
-              label: "Description",
+              label: msg("fields.description", "Description"),
               type: "object",
-              objectFields: textAppearanceFields("Description"),
+              objectFields: textAppearanceFields(
+                msg("fields.descriptionStyles", "Description Styles"),
+              ),
             },
           },
         },
@@ -582,39 +586,38 @@ export const CafeAndCoffeeShopFeaturedFields: YextFields<CafeAndCoffeeShopFeatur
     },
   };
 
-const CafeAndCoffeeShopFeaturedDefaultProps: CafeAndCoffeeShopFeaturedProps =
-  {
-    section: {
-      visibleOnLivePage: true,
+const CafeAndCoffeeShopFeaturedDefaultProps: CafeAndCoffeeShopFeaturedProps = {
+  section: {
+    visibleOnLivePage: true,
+    backgroundColor: {
+      selectedColor: "palette-primary",
+      contrastingColor: "palette-primary-contrast",
+    },
+  },
+  heading: {
+    text: createTextField("Featured Items"),
+    styles: defaultTextStyles,
+    fontColor: undefined,
+  },
+  content: {
+    items: featuredSource.defaultValue,
+    styles: {
       backgroundColor: {
-        selectedColor: "palette-primary",
-        contrastingColor: "palette-primary-contrast",
+        selectedColor: "palette-tertiary",
+        contrastingColor: "palette-tertiary-contrast",
+      },
+      image: defaultFeaturedImage,
+      title: {
+        styles: defaultTextStyles,
+        fontColor: undefined,
+      },
+      description: {
+        styles: defaultTextStyles,
+        fontColor: undefined,
       },
     },
-    heading: {
-      text: createTextField("Featured Items"),
-      styles: defaultTextStyles,
-      fontColor: undefined,
-    },
-    content: {
-      items: featuredSource.defaultValue,
-      styles: {
-        backgroundColor: {
-          selectedColor: "palette-tertiary",
-          contrastingColor: "palette-tertiary-contrast",
-        },
-        image: defaultFeaturedImage,
-        title: {
-          styles: defaultTextStyles,
-          fontColor: undefined,
-        },
-        description: {
-          styles: defaultTextStyles,
-          fontColor: undefined,
-        },
-      },
-    },
-  };
+  },
+};
 
 const CafeAndCoffeeShopFeaturedComponent: PuckComponent<
   CafeAndCoffeeShopFeaturedProps
@@ -766,7 +769,7 @@ const CafeAndCoffeeShopFeaturedComponent: PuckComponent<
                     };
                     const resolvedCTA = item.cta;
                     const ctaValue: ComprehensiveCTAValue | undefined =
-                      resolvedCTA?.data.cta
+                      resolvedCTA?.data?.cta
                         ? {
                             data: {
                               ...resolvedCTA.data,
@@ -881,7 +884,7 @@ const CafeAndCoffeeShopFeaturedComponent: PuckComponent<
 
 export const CafeAndCoffeeShopFeatured: YextComponentConfig<CafeAndCoffeeShopFeaturedProps> =
   {
-    label: "Featured",
+    label: msg("components.featured", "Featured"),
     fields: CafeAndCoffeeShopFeaturedFields,
     defaultProps: CafeAndCoffeeShopFeaturedDefaultProps,
     render: (props) => <CafeAndCoffeeShopFeaturedComponent {...props} />,

@@ -325,7 +325,7 @@ export const DEFAULT_LOCATOR_RESULT_CARD_PROPS: LocatorResultCardProps = {
     liveVisibility: true,
   },
   secondaryCTA: {
-    label: "Call to Action",
+    label: msg("fields.callToAction", "Call to Action"),
     link: "#",
     normalizeLink: true,
     variant: "secondary",
@@ -1156,6 +1156,16 @@ const PrimaryCTA = (props: {
 
   const showPrimaryCta = primaryCTA.liveVisibility && resolvedUrl;
 
+  const resolvedPrimaryCtaLabel = resolveComponentData(
+    primaryCTA.label,
+    i18n.language,
+    location
+  );
+  const primaryCtaLabel =
+    !resolvedPrimaryCtaLabel || resolvedPrimaryCtaLabel === "Visit Page"
+      ? t("visitPage", "Visit Page")
+      : resolvedPrimaryCtaLabel;
+
   const handlePrimaryCtaClick = useCardAnalyticsCallback(
     result,
     "VIEW_WEBSITE"
@@ -1165,13 +1175,7 @@ const PrimaryCTA = (props: {
     showPrimaryCta && (
       <CTA
         link={resolvedUrl}
-        label={
-          resolveComponentData(
-            props.primaryCTA.label,
-            i18n.language,
-            location
-          ) || t("visitPage", "Visit Page")
-        }
+        label={primaryCtaLabel}
         ariaLabel={t("visitPageForName", {
           name: primaryHeadingText,
           defaultValue: "Visit Page for {{name}}",

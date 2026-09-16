@@ -1,8 +1,10 @@
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { AnalyticsScopeProvider } from "@yext/pages-components";
 import {
+  msg,
   Background,
   EntityField,
   getAnalyticsScopeHash,
@@ -514,30 +516,30 @@ const getFirstPartyTopReviews = (
 export const CafeAndCoffeeShopReviewsFields: YextFields<CafeAndCoffeeShopReviewsProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
       },
     },
     heading: {
-      label: "Heading",
+      label: msg("fields.heading", "Heading"),
       type: "object",
       objectFields: {
         text: {
-          label: "Heading",
+          label: msg("fields.heading", "Heading"),
           type: "entityField",
           filter: {
             includeListsOnly: false,
@@ -546,40 +548,40 @@ export const CafeAndCoffeeShopReviewsFields: YextFields<CafeAndCoffeeShopReviews
           disableConstantValueToggle: false,
         },
         styles: {
-          label: "Text Styles",
+          label: msg("fields.textStyles", "Text Styles"),
           type: "styledText",
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     content: {
-      label: "Content",
+      label: msg("fields.content", "Content"),
       type: "object",
       objectFields: {
         rating: {
-          label: "Review Rating",
+          label: msg("fields.reviewRating", "Review Rating"),
           type: "object",
           objectFields: {
             showStarsLabel: {
-              label: "Show Stars Label",
+              label: msg("fields.showStarsLabel", "Show Stars Label"),
               type: "radio",
               options: [
-                { label: "Yes", value: true },
-                { label: "No", value: false },
+                { label: msg("fields.options.yes", "Yes"), value: true },
+                { label: msg("fields.options.no", "No"), value: false },
               ],
             },
           },
         },
         subheading: {
-          label: "Subheading",
+          label: msg("fields.subheading", "Subheading"),
           type: "object",
           objectFields: {
             text: {
-              label: "Text",
+              label: msg("fields.text", "Text"),
               type: "entityField",
               filter: {
                 includeListsOnly: false,
@@ -588,11 +590,11 @@ export const CafeAndCoffeeShopReviewsFields: YextFields<CafeAndCoffeeShopReviews
               disableConstantValueToggle: false,
             },
             styles: {
-              label: "Text Styles",
+              label: msg("fields.textStyles", "Text Styles"),
               type: "styledText",
             },
             fontColor: {
-              label: "Font Color",
+              label: msg("fields.fontColor", "Font Color"),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
@@ -621,7 +623,7 @@ const CafeAndCoffeeShopReviewsDefaultProps: CafeAndCoffeeShopReviewsProps =
         showStarsLabel: true,
       },
       subheading: {
-        text: createTextField("Recent Reviews:"),
+        text: createTextField(""),
         styles: defaultTextStyles,
         fontColor: undefined,
       },
@@ -636,6 +638,7 @@ const CafeAndCoffeeShopReviewsComponent = (
     };
   },
 ) => {
+  const { t } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
   const locale = streamDocument?.locale ?? "en";
   const sectionStyle =
@@ -726,7 +729,7 @@ const CafeAndCoffeeShopReviewsComponent = (
             as="section"
             id="reviews-section"
             className="local-section section-reviews"
-            aria-label="Reviews"
+            aria-label={t("components.reviews", "Reviews")}
             background={props.section.backgroundColor}
             style={sectionStyle}
           >
@@ -788,7 +791,7 @@ const CafeAndCoffeeShopReviewsComponent = (
                               className="reviews__label"
                               style={{ color: sectionForeground }}
                             >
-                              Stars
+                              {t("stars", "Stars")}
                             </span>
                           ) : null}
                           <span className="reviews__stars" aria-hidden="true">
@@ -870,7 +873,7 @@ const CafeAndCoffeeShopReviewsComponent = (
                         props.content.subheading.text,
                         locale,
                         streamDocument,
-                        "Recent Reviews:",
+                        t("recentReviews", "Recent Reviews:"),
                       )}
                     </p>
                   </EntityField>
@@ -911,7 +914,7 @@ const CafeAndCoffeeShopReviewsComponent = (
                                       className="reviews__label"
                                       style={{ color: sectionBackgroundColor }}
                                     >
-                                      Stars
+                                      {t("stars", "Stars")}
                                     </span>
                                   ) : null}
                                   <span
@@ -970,7 +973,7 @@ const CafeAndCoffeeShopReviewsComponent = (
 
 export const CafeAndCoffeeShopReviews: YextComponentConfig<CafeAndCoffeeShopReviewsProps> =
   {
-    label: "Reviews",
+    label: msg("components.reviews", "Reviews"),
     fields: CafeAndCoffeeShopReviewsFields,
     defaultProps: CafeAndCoffeeShopReviewsDefaultProps,
     render: (props) => <CafeAndCoffeeShopReviewsComponent {...props} />,
