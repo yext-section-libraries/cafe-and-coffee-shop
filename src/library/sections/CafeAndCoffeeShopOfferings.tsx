@@ -1,9 +1,11 @@
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { AnalyticsScopeProvider } from "@yext/pages-components";
 import type { ComplexImageType, ImageType } from "@yext/pages-components";
 import {
+  msg,
   Background,
   EntityField,
   Image,
@@ -287,9 +289,9 @@ a, button {
   }
 }
 `;
-const imageFields = (label: string): YextFields<OfferingsImageProps> => ({
+const imageFields = (stylesLabel: string): YextFields<OfferingsImageProps> => ({
   image: {
-    label: "Image",
+    label: msg("fields.image", "Image"),
     type: "entityField",
     filter: {
       types: ["type.image"],
@@ -297,19 +299,19 @@ const imageFields = (label: string): YextFields<OfferingsImageProps> => ({
     disableConstantValueToggle: false,
   },
   aspectRatio: {
-    label: "Aspect Ratio",
+    label: msg("fields.options.aspectRatio", "Aspect Ratio"),
     type: "number",
   },
   imageConstrain: {
-    label: "Image Constrain",
+    label: msg("fields.imageConstrain", "Image Constrain"),
     type: "select",
     options: [
-      { label: "Fixed", value: "fixed" },
-      { label: "Filled", value: "filled" },
+      { label: msg("fields.options.fixed", "Fixed"), value: "fixed" },
+      { label: msg("fields.options.filled", "Filled"), value: "filled" },
     ],
   },
   styles: {
-    label: `${label} Styles`,
+    label: stylesLabel,
     type: "styledImage",
   },
 });
@@ -337,30 +339,30 @@ const defaultContent: CafeAndCoffeeShopOfferingsProps["content"] = {
 export const CafeAndCoffeeShopOfferingsFields: YextFields<CafeAndCoffeeShopOfferingsProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
       },
     },
     heading: {
-      label: "Heading",
+      label: msg("fields.heading", "Heading"),
       type: "object",
       objectFields: {
         text: {
-          label: "Heading",
+          label: msg("fields.heading", "Heading"),
           type: "entityField",
           filter: {
             includeListsOnly: false,
@@ -369,22 +371,22 @@ export const CafeAndCoffeeShopOfferingsFields: YextFields<CafeAndCoffeeShopOffer
           disableConstantValueToggle: false,
         },
         styles: {
-          label: "Text Styles",
+          label: msg("fields.textStyles", "Text Styles"),
           type: "styledText",
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     content: {
-      label: "Content",
+      label: msg("fields.content", "Content"),
       type: "object",
       objectFields: {
         text: {
-          label: "Text",
+          label: msg("fields.text", "Text"),
           type: "entityField",
           filter: {
             includeListsOnly: true,
@@ -393,20 +395,20 @@ export const CafeAndCoffeeShopOfferingsFields: YextFields<CafeAndCoffeeShopOffer
           disableConstantValueToggle: false,
         },
         styles: {
-          label: "Text Styles",
+          label: msg("fields.textStyles", "Text Styles"),
           type: "styledText",
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     sectionImage: {
-      label: "Image",
+      label: msg("fields.image", "Image"),
       type: "object",
-      objectFields: imageFields("Image"),
+      objectFields: imageFields(msg("fields.imageStyles", "Image Styles")),
     },
   };
 
@@ -437,6 +439,7 @@ const CafeAndCoffeeShopOfferingsComponent = (
     };
   },
 ) => {
+  const { t } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
   const locale = streamDocument?.locale ?? "en";
   const sectionStyle =
@@ -494,7 +497,7 @@ const CafeAndCoffeeShopOfferingsComponent = (
           <Background
             as="section"
             className="local-section split-sections section-offerings"
-            aria-label="Offerings"
+            aria-label={t("fields.offerings", "Offerings")}
             background={props.section.backgroundColor}
             style={sectionStyle}
           >
@@ -619,7 +622,7 @@ const CafeAndCoffeeShopOfferingsComponent = (
 
 export const CafeAndCoffeeShopOfferings: YextComponentConfig<CafeAndCoffeeShopOfferingsProps> =
   {
-    label: "Offerings",
+    label: msg("fields.offerings", "Offerings"),
     fields: CafeAndCoffeeShopOfferingsFields,
     defaultProps: CafeAndCoffeeShopOfferingsDefaultProps,
     render: (props) => <CafeAndCoffeeShopOfferingsComponent {...props} />,

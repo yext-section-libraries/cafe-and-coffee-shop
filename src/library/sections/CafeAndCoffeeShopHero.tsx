@@ -1,10 +1,12 @@
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import type { PuckComponent } from "@puckeditor/core";
 import { AnalyticsScopeProvider } from "@yext/pages-components";
 import { HoursStatus, type HoursType } from "@yext/pages-components";
 import {
+  msg,
   ComprehensiveCTA,
   EntityField,
   getAnalyticsScopeHash,
@@ -152,7 +154,7 @@ const createCTA = (
 
 const styledTextFields = (): YextFields<StyledTextProps> => ({
   text: {
-    label: "Text",
+    label: msg("fields.text", "Text"),
     type: "entityField",
     filter: {
       types: ["type.string"],
@@ -160,11 +162,11 @@ const styledTextFields = (): YextFields<StyledTextProps> => ({
     disableConstantValueToggle: false,
   },
   styles: {
-    label: "Text Styles",
+    label: msg("fields.textStyles", "Text Styles"),
     type: "styledText",
   },
   fontColor: {
-    label: "Font Color",
+    label: msg("fields.fontColor", "Font Color"),
     type: "basicSelector",
     options: "SITE_COLOR",
   },
@@ -228,35 +230,35 @@ const defaultCtas: HeroCta[] = [
 export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
       },
     },
     heading: {
-      label: "Heading",
+      label: msg("fields.heading", "Heading"),
       type: "object",
       objectFields: styledTextFields(),
     },
     background: {
-      label: "Background",
+      label: msg("fields.background", "Background"),
       type: "object",
       objectFields: {
         image: {
-          label: "Image",
+          label: msg("fields.image", "Image"),
           type: "entityField",
           filter: {
             types: ["type.image"],
@@ -266,11 +268,11 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
       },
     },
     hours: {
-      label: "Hours",
+      label: msg("fields.hours", "Hours"),
       type: "object",
       objectFields: {
         hours: {
-          label: "Hours",
+          label: msg("fields.hours", "Hours"),
           type: "entityField",
           filter: {
             types: ["type.hours"],
@@ -278,58 +280,58 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
           disableConstantValueToggle: true,
         },
         hoursStyles: {
-          label: "Hours Styles",
+          label: msg("fields.hoursStyles", "Hours Styles"),
           type: "object",
           objectFields: {
             showCurrentStatus: {
-              label: "Show Current Status",
+              label: msg("fields.showCurrentStatus", "Show Current Status"),
               type: "radio",
               options: [
-                { label: "Yes", value: true },
-                { label: "No", value: false },
+                { label: msg("fields.options.yes", "Yes"), value: true },
+                { label: msg("fields.options.no", "No"), value: false },
               ],
             },
             timeFormat: {
-              label: "Time Format",
+              label: msg("fields.timeFormat", "Time Format"),
               type: "select",
               options: [
-                { label: "12 Hour", value: "12h" },
-                { label: "24 Hour", value: "24h" },
+                { label: msg("fields.options.hour12Label", "12 Hour"), value: "12h" },
+                { label: msg("fields.options.hour24Label", "24 Hour"), value: "24h" },
               ],
             },
             dayOfWeekFormat: {
-              label: "Day Of Week Format",
+              label: msg("fields.dayOfWeekFormatLabel", "Day Of Week Format"),
               type: "select",
               options: [
-                { label: "Short", value: "short" },
-                { label: "Long", value: "long" },
+                { label: msg("fields.options.short", "Short"), value: "short" },
+                { label: msg("fields.options.long", "Long"), value: "long" },
               ],
             },
             showDayNames: {
-              label: "Show Day Names",
+              label: msg("fields.showDayNames", "Show Day Names"),
               type: "radio",
               options: [
-                { label: "Yes", value: true },
-                { label: "No", value: false },
+                { label: msg("fields.options.yes", "Yes"), value: true },
+                { label: msg("fields.options.no", "No"), value: false },
               ],
             },
             openStatusBackgroundColor: {
-              label: "Open Pill Background Color",
+              label: msg("fields.openPillBackgroundColor", "Open Pill Background Color"),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
             openStatusTextColor: {
-              label: "Open Pill Text Color",
+              label: msg("fields.openPillTextColor", "Open Pill Text Color"),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
             closedStatusBackgroundColor: {
-              label: "Closed Pill Background Color",
+              label: msg("fields.closedPillBackgroundColor", "Closed Pill Background Color"),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
             closedStatusTextColor: {
-              label: "Closed Pill Text Color",
+              label: msg("fields.closedPillTextColor", "Closed Pill Text Color"),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
@@ -338,35 +340,35 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
       },
     },
     subheading: {
-      label: "Subheading",
+      label: msg("fields.subheading", "Subheading"),
       type: "object",
       objectFields: styledTextFields(),
     },
     reviewsRatingAndCount: {
-      label: "Reviews",
+      label: msg("fields.reviews", "Reviews"),
       type: "object",
       objectFields: {
         showStarsLabel: {
-          label: "Show Stars Label",
+          label: msg("fields.showStarsLabel", "Show Stars Label"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     ctas: {
-      label: "CTAs",
+      label: msg("fields.ctas", "CTAs"),
       type: "array",
       arrayFields: {
         item: {
-          label: "CTA",
+          label: msg("fields.cta", "CTA"),
           type: "comprehensiveCTA",
         },
       },
@@ -743,19 +745,23 @@ const hasHeroStatusDetail = (status: HeroHoursStatusTemplateProps) =>
   !status.currentInterval?.is24h?.() &&
   Boolean(status.futureInterval);
 
-const getHeroStatusTime = (status: HeroHoursStatusTemplateProps) => {
+const getHeroStatusTime = (
+  status: HeroHoursStatusTemplateProps,
+  locale: string,
+) => {
   if (!hasHeroStatusDetail(status)) {
     return "";
   }
 
   return status.isOpen
-    ? (status.currentInterval?.getEndTime("en-US", status.timeOptions) ?? "")
-    : (status.futureInterval?.getStartTime("en-US", status.timeOptions) ?? "");
+    ? (status.currentInterval?.getEndTime(locale, status.timeOptions) ?? "")
+    : (status.futureInterval?.getStartTime(locale, status.timeOptions) ?? "");
 };
 
 const getHeroStatusDay = (
   status: HeroHoursStatusTemplateProps,
   showDayNames: boolean,
+  locale: string,
 ) => {
   if (!showDayNames || !hasHeroStatusDetail(status)) {
     return "";
@@ -765,16 +771,17 @@ const getHeroStatusDay = (
 
   return status.isOpen
     ? (status.currentInterval?.end
-        ?.setLocale("en-US")
+        ?.setLocale(locale)
         .toLocaleString(dayOptions) ?? "")
     : (status.futureInterval?.start
-        ?.setLocale("en-US")
+        ?.setLocale(locale)
         .toLocaleString(dayOptions) ?? "");
 };
 
 const CafeAndCoffeeShopHeroComponent: PuckComponent<
   CafeAndCoffeeShopHeroProps
 > = (props) => {
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
   const locale = streamDocument?.locale ?? "en";
   const isEditing = Boolean(props.puck?.isEditing);
@@ -804,7 +811,6 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
     getFirstPartyAggregateRating(streamDocument) ??
     getAggregateRating(streamDocument);
   const ratingValue = aggregateRating.averageRating.toFixed(1);
-  const reviewCountValue = String(aggregateRating.reviewCount);
   const shouldShowHeroReviewSummary = aggregateRating.reviewCount > 0;
   const backgroundImage = getResolvedImage(
     props.background.image,
@@ -842,7 +848,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
           >
             <section
               className="static-hero"
-              aria-label="Hero"
+              aria-label={t("hero", "Hero")}
               style={
                 backgroundImage.url
                   ? undefined
@@ -934,7 +940,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                               ),
                             }}
                           >
-                            Stars
+                            {t("stars", "Stars")}
                           </span>
                         ) : null}
                         <span
@@ -946,7 +952,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                             ),
                           }}
                         >
-                          ★★★★★
+                          {String.fromCodePoint(0x2605).repeat(5)}
                         </span>
                       </span>
                       <span className="hero-rating-meta">
@@ -970,7 +976,10 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                             ),
                           }}
                         >
-                          {reviewCountValue}
+                          {t("reviewWithCount", {
+                            defaultValue: "{{count}} Reviews",
+                            count: aggregateRating.reviewCount,
+                          })}
                         </span>
                       </span>
                     </p>
@@ -997,22 +1006,44 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                         }
                         statusTemplate={(status) => {
                           const pillLabel = status.comingSoon
-                            ? "Coming Soon"
+                            ? t("comingSoon", "Coming Soon")
                             : status.currentInterval?.is24h?.()
-                              ? "Open 24 Hours"
+                              ? t("open24Hours", "Open 24 Hours")
                               : !status.futureInterval
-                                ? "Temporarily Closed"
+                                ? t("temporarilyClosed", "Temporarily Closed")
                                 : status.isOpen
-                                  ? "Open Now"
-                                  : "Closed";
-                          const detailPrefix = status.isOpen
-                            ? "Closes at"
-                            : "Opens at";
-                          const detailTime = getHeroStatusTime(status);
+                                  ? t("openNow", "Open Now")
+                                  : t("closed", "Closed");
+                          const detailTime = getHeroStatusTime(
+                            status,
+                            i18n.language,
+                          );
                           const detailDay = getHeroStatusDay(
                             status,
                             props.hours.hoursStyles.showDayNames,
+                            i18n.language,
                           );
+                          const detailText = detailTime
+                            ? status.isOpen
+                              ? detailDay
+                                ? t(
+                                    "closesAtTimeWeek",
+                                    "Closes at {{time}} {{dayOfWeek}}",
+                                    { time: detailTime, dayOfWeek: detailDay },
+                                  )
+                                : t("closesAtTime", "Closes at {{time}}", {
+                                    time: detailTime,
+                                  })
+                              : detailDay
+                                ? t(
+                                    "opensAtTimeWeek",
+                                    "Opens at {{time}} {{dayOfWeek}}",
+                                    { time: detailTime, dayOfWeek: detailDay },
+                                  )
+                                : t("opensAtTime", "Opens at {{time}}", {
+                                    time: detailTime,
+                                  })
+                            : "";
 
                           return (
                             <div className="hero-status-line">
@@ -1029,11 +1060,9 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                               >
                                 {pillLabel}
                               </span>
-                              {detailTime ? (
+                              {detailText ? (
                                 <span className="hero-close-time">
-                                  <span>{detailPrefix}</span>
-                                  <span>{detailTime}</span>
-                                  {detailDay ? <span>{detailDay}</span> : null}
+                                  {detailText}
                                 </span>
                               ) : null}
                             </div>
@@ -1118,7 +1147,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
 
 export const CafeAndCoffeeShopHero: YextComponentConfig<CafeAndCoffeeShopHeroProps> =
   {
-    label: "Hero",
+    label: msg("hero", "Hero"),
     fields: CafeAndCoffeeShopHeroFields,
     defaultProps: CafeAndCoffeeShopHeroDefaultProps,
     render: (props) => <CafeAndCoffeeShopHeroComponent {...props} />,

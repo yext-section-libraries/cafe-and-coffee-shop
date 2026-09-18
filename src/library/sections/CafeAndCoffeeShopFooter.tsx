@@ -1,6 +1,7 @@
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import type { PuckComponent } from "@puckeditor/core";
 import {
   AnalyticsScopeProvider,
@@ -129,12 +130,12 @@ const socialIconAssetDimensions: Record<
 };
 
 const linkTypeOptions = () => [
-  { label: "URL", value: "URL" },
-  { label: "Email", value: "Email" },
-  { label: "Phone", value: "Phone" },
-  { label: "Driving Directions", value: "DRIVING_DIRECTIONS" },
-  { label: "Click To Website", value: "CLICK_TO_WEBSITE" },
-  { label: "Other", value: "OTHER" },
+  { label: msg("fields.options.url", "URL"), value: "URL" },
+  { label: msg("fields.options.email", "Email"), value: "Email" },
+  { label: msg("fields.options.phone", "Phone"), value: "Phone" },
+  { label: msg("fields.options.drivingDirections", "Driving Directions"), value: "DRIVING_DIRECTIONS" },
+  { label: msg("fields.options.clickToWebsite", "Click To Website"), value: "CLICK_TO_WEBSITE" },
+  { label: msg("fields.options.other", "Other"), value: "OTHER" },
 ];
 
 const createStyledText = (
@@ -227,7 +228,7 @@ const linkFieldConfig: YextArrayField<FooterLinkValue[]> = {
   type: "array",
   arrayFields: {
     cta: {
-      label: "Call to Action",
+      label: msg("fields.callToAction", "Call to Action"),
       type: "comprehensiveCTA",
     },
   },
@@ -238,12 +239,12 @@ const socialLinkFieldConfig: YextArrayField<FooterSocialLinkValue[]> = {
   type: "array",
   arrayFields: {
     iconImage: {
-      label: "Icon Image",
+      label: msg("fields.iconImage", "Icon Image"),
       type: "object",
       objectFields: {
         image: {
           type: "entityField",
-          label: "Image",
+          label: msg("fields.image", "Image"),
           filter: {
             types: ["type.image"],
           },
@@ -290,7 +291,7 @@ const appBadgeFieldConfig: YextArrayField<FooterAppBadgeItem[]> = {
   type: "array",
   arrayFields: {
     cta: {
-      label: "Badge",
+      label: msg("fields.badge", "Badge"),
       type: "comprehensiveCTA",
     },
   },
@@ -308,7 +309,7 @@ const appBadgeFieldConfig: YextArrayField<FooterAppBadgeItem[]> = {
 
 const styledTextFields = (): YextFields<StyledTextProps> => ({
   text: {
-    label: "Text",
+    label: msg("fields.text", "Text"),
     type: "entityField",
     filter: {
       types: ["type.string"],
@@ -316,11 +317,11 @@ const styledTextFields = (): YextFields<StyledTextProps> => ({
     disableConstantValueToggle: false,
   },
   styles: {
-    label: "Text Styles",
+    label: msg("fields.textStyles", "Text Styles"),
     type: "styledText",
   },
   fontColor: {
-    label: "Font Color",
+    label: msg("fields.fontColor", "Font Color"),
     type: "basicSelector",
     options: "SITE_COLOR",
   },
@@ -379,58 +380,58 @@ const defaultAppBadges: CafeAndCoffeeShopFooterProps["appBadges"] = {
 export const CafeAndCoffeeShopFooterFields: YextFields<CafeAndCoffeeShopFooterProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
       },
     },
     brand: {
-      label: "Brand",
+      label: msg("fields.brand", "Brand"),
       type: "object",
       objectFields: {
         name: {
-          label: "Name",
+          label: msg("fields.name", "Name"),
           type: "object",
           objectFields: styledTextFields(),
         },
       },
     },
     socialLinks: {
-      label: "Social Links",
+      label: msg("fields.socialLinks", "Social Links"),
       ...socialLinkFieldConfig,
     },
     footerLinks: {
-      label: "Footer Links",
+      label: msg("footerLinks", "Footer links"),
       ...linkFieldConfig,
     },
     legalLinks: {
-      label: "Legal Links",
+      label: msg("legalLinks", "Legal links"),
       ...linkFieldConfig,
     },
     fontColor: {
-      label: "Link Font Color",
+      label: msg("fields.linkFontColor", "Link Font Color"),
       type: "basicSelector",
       options: "SITE_COLOR",
     },
     copyright: {
-      label: "Copyright",
+      label: msg("fields.copyright", "Copyright"),
       type: "object",
       objectFields: {
         text: {
-          label: "Text",
+          label: msg("fields.text", "Text"),
           type: "entityField",
           filter: {
             types: ["type.string"],
@@ -438,22 +439,22 @@ export const CafeAndCoffeeShopFooterFields: YextFields<CafeAndCoffeeShopFooterPr
           disableConstantValueToggle: false,
         },
         styles: {
-          label: "Text Styles",
+          label: msg("fields.textStyles", "Text Styles"),
           type: "styledText",
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     appBadges: {
-      label: "App Badges",
+      label: msg("fields.appBadges", "App Badges"),
       type: "object",
       objectFields: {
         items: {
-          label: "Badges",
+          label: msg("fields.badges", "Badges"),
           ...appBadgeFieldConfig,
         },
       },
@@ -888,6 +889,7 @@ const resolveSocialIconAltText = (
 const CafeAndCoffeeShopFooterComponent: PuckComponent<
   CafeAndCoffeeShopFooterProps
 > = (props) => {
+  const { t } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
   const locale = streamDocument?.locale ?? "en";
   const sectionStyle =
@@ -973,7 +975,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
               <div className="footer__top">
                 <section
                   className="footer__brand"
-                  aria-label="Brand and socials"
+                  aria-label={t("brandAndSocials", "Brand and socials")}
                 >
                   <EntityField
                     displayName="Brand Name"
@@ -1081,7 +1083,10 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
                   </div>
                 </section>
 
-                <nav className="footer__links" aria-label="Footer links">
+                <nav
+                  className="footer__links"
+                  aria-label={t("footerLinks", "Footer links")}
+                >
                   <ul>
                     {props.footerLinks.map((item, index) => {
                       const label = resolveFooterLinkLabel(
@@ -1148,7 +1153,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
                     {copyrightText}
                   </span>
                 </EntityField>
-                <nav aria-label="Legal links">
+                <nav aria-label={t("legalLinks", "Legal links")}>
                   {props.legalLinks.map((item, index) => {
                     const label = resolveFooterLinkLabel(
                       item.cta,
@@ -1187,7 +1192,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
 
 export const CafeAndCoffeeShopFooter: YextComponentConfig<CafeAndCoffeeShopFooterProps> =
   {
-    label: "Footer",
+    label: msg("components.footer", "Footer"),
     fields: CafeAndCoffeeShopFooterFields,
     defaultProps: CafeAndCoffeeShopFooterDefaultProps,
     render: (props) => <CafeAndCoffeeShopFooterComponent {...props} />,

@@ -1,13 +1,16 @@
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 import { AnalyticsScopeProvider, Link } from "@yext/pages-components";
 import {
+  msg,
   EntityField,
   getAnalyticsScopeHash,
   getSurfaceColorStyle,
   getThemeColorCssValue,
   isDarkColor,
+  pt,
   resolveBreadcrumbs,
   resolveComponentData,
   type StreamDocument,
@@ -240,75 +243,75 @@ const resolveTextValue = (
 export const CafeAndCoffeeShopBreadcrumbsFields: YextFields<CafeAndCoffeeShopBreadcrumbsProps> =
   {
     section: {
-      label: "Section",
+      label: msg("fields.section", "Section"),
       type: "object",
       objectFields: {
         backgroundColor: {
-          label: "Background Color",
+          label: msg("fields.backgroundColor", "Background Color"),
           type: "basicSelector",
           options: "BACKGROUND_COLOR",
         },
         visibleOnLivePage: {
-          label: "Visible on Live Page",
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
       },
     },
     rootLabel: {
-      label: "Root Label",
+      label: msg("fields.rootLabel", "Root Label"),
       type: "object",
       objectFields: {
         text: {
           type: "entityField",
-          label: "Text",
+          label: msg("fields.text", "Text"),
           filter: {
             types: ["type.string"],
           },
         },
         styles: {
-          label: "Text Styles",
+          label: msg("fields.textStyles", "Text Styles"),
           type: "styledText",
         },
         fontColor: {
-          label: "Font Color",
+          label: msg("fields.fontColor", "Font Color"),
           type: "basicSelector",
           options: "SITE_COLOR",
         },
       },
     },
     currentLocation: {
-      label: "Current Location",
+      label: msg("fields.currentLocation", "Current Location"),
       type: "object",
       objectFields: {
         includeCurrentLocation: {
-          label: "Include Current Location",
+          label: msg("fields.includeCurrentLocation", "Include Current Location"),
           type: "radio",
           options: [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
           ],
         },
         label: {
-          label: "Label",
+          label: msg("fields.label", "Label"),
           type: "object",
           objectFields: {
             text: {
               type: "entityField",
-              label: "Text",
+              label: msg("fields.text", "Text"),
               filter: {
                 types: ["type.string"],
               },
             },
             styles: {
-              label: "Text Styles",
+              label: msg("fields.textStyles", "Text Styles"),
               type: "styledText",
             },
             fontColor: {
-              label: "Font Color",
+              label: msg("fields.fontColor", "Font Color"),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
@@ -353,6 +356,7 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
     };
   },
 ) => {
+  const { t } = useTranslation();
   const streamDocument = useDocument<BreadcrumbStreamDocument>();
   const { relativePrefixToRoot } = useTemplateProps<{
     relativePrefixToRoot?: string;
@@ -402,8 +406,10 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
           padding: "18px 24px",
         }}
       >
-        No breadcrumbs available (section will be hidden on live page). Create a
-        directory to enable breadcrumbs.
+        {pt(
+          "noBreadcrumbs",
+          "No breadcrumbs available (section will be hidden on live page). Create a directory to enable breadcrumbs.",
+        )}
       </p>
     ) : (
       <></>
@@ -422,7 +428,7 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
           <style>{CafeAndCoffeeShopStyles}</style>
           <section
             id="breadcrumbs-section"
-            aria-label="Breadcrumbs"
+            aria-label={t("components.breadcrumbs", "Breadcrumbs")}
             style={sectionStyle}
           >
             <div className="breadcrumbs__wrap">
@@ -527,8 +533,10 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
                     padding: "18px 24px",
                   }}
                 >
-                  No breadcrumbs available (section will be hidden on live
-                  page). Create a directory to enable breadcrumbs.
+                  {pt(
+                    "noBreadcrumbs",
+                    "No breadcrumbs available (section will be hidden on live page). Create a directory to enable breadcrumbs.",
+                  )}
                 </p>
               ) : (
                 <></>
@@ -543,7 +551,7 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
 
 export const CafeAndCoffeeShopBreadcrumbs: YextComponentConfig<CafeAndCoffeeShopBreadcrumbsProps> =
   {
-    label: "Breadcrumbs",
+    label: msg("components.breadcrumbs", "Breadcrumbs"),
     fields: CafeAndCoffeeShopBreadcrumbsFields,
     defaultProps: CafeAndCoffeeShopBreadcrumbsDefaultProps,
     render: (props) => <CafeAndCoffeeShopBreadcrumbsComponent {...props} />,
