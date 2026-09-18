@@ -1145,7 +1145,7 @@ const CafeAndCoffeeShopHeaderComponent: PuckComponent<
 
 export const CafeAndCoffeeShopHeader: YextComponentConfig<CafeAndCoffeeShopHeaderProps> =
   {
-    label: msg("components.sharedHeader", "Shared Header"),
+    label: msg("components.sharedHeader", "Header"),
     fields: CafeAndCoffeeShopHeaderFields,
     defaultProps: {
       variant: "centerLogoSplitNav",
@@ -1293,7 +1293,7 @@ export const CafeAndCoffeeShopHeader: YextComponentConfig<CafeAndCoffeeShopHeade
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopHeader",
-  displayName: "Shared Header",
-  description: "Shared Header",
+  displayName: "Header",
+  description: "Header",
   pageSetTypes: ["ENTITY", "DIRECTORY", "LOCATOR"],
 };
