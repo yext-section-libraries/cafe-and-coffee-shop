@@ -1,4 +1,5 @@
 {
+  "address": "Adresa",
   "brandAndSocials": "Brend i društvene mreže",
   "breadcrumb": "Krušne mrvice",
   "callToAction": "Poziv na akciju",
@@ -13,11 +14,13 @@
     "breadcrumbs": "Krušne mrvice",
     "reviews": "Recenzije"
   },
+  "currentLocation": "Trenutna lokacija",
   "customSearchArea": "Područje prilagođenog pretraživanja",
   "distance": "Udaljenost",
   "distanceLineFromSearch": "<strong>{{distance}}</strong> iz pretraživanja",
   "distanceLineFromSearchLocation": "<strong>{{distance}}</strong> od {{searchLocation}}",
   "distanceLineFromYou": "<strong>{{distance}}</strong> od vas",
+  "email": "E-mail",
   "enableCookies": "Omogući kolačiće",
   "fields": {
     "faqs": "Česta pitanja",

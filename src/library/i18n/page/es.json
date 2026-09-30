@@ -1,4 +1,5 @@
 {
+  "address": "DIRECCIÓN",
   "brandAndSocials": "Marca y redes sociales",
   "breadcrumb": "Migaja de pan",
   "callToAction": "Llamado a la acción",
@@ -13,11 +14,13 @@
     "breadcrumbs": "Pan rallado",
     "reviews": "Reseñas"
   },
+  "currentLocation": "Ubicación actual",
   "customSearchArea": "Área de búsqueda personalizada",
   "distance": "Distancia",
   "distanceLineFromSearch": "<strong>{{distance}}</strong> de la búsqueda",
   "distanceLineFromSearchLocation": "<strong>{{distance}}</strong> de {{searchLocation}}",
   "distanceLineFromYou": "<strong>{{distance}}</strong> de ti",
+  "email": "Correo electrónico",
   "enableCookies": "Habilitar cookies",
   "fields": {
     "faqs": "Preguntas frecuentes",

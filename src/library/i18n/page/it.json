@@ -1,4 +1,5 @@
 {
+  "address": "Indirizzo",
   "brandAndSocials": "Marchio e social media",
   "breadcrumb": "Breadcrumb",
   "callToAction": "Invito all'azione",
@@ -13,11 +14,13 @@
     "breadcrumbs": "Breadcrumbs",
     "reviews": "Recensioni"
   },
+  "currentLocation": "Posizione attuale",
   "customSearchArea": "Area di ricerca personalizzata",
   "distance": "Distanza",
   "distanceLineFromSearch": "<strong>{{distance}}</strong> dalla ricerca",
   "distanceLineFromSearchLocation": "<strong>{{distance}}</strong> da {{searchLocation}}",
   "distanceLineFromYou": "<strong>{{distance}}</strong> da te",
+  "email": "E-mail",
   "enableCookies": "Abilita i cookie",
   "fields": {
     "faqs": "Domande frequenti",
