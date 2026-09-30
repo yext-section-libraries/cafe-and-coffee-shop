@@ -1,4 +1,5 @@
 {
+  "address": "Adres",
   "brandAndSocials": "Marka ve sosyal medya",
   "breadcrumb": "Ekmek kırıntısı",
   "callToAction": "Eylem Çağrısı",
@@ -13,11 +14,13 @@
     "breadcrumbs": "Ekmek kırıntıları",
     "reviews": "Yorumlar"
   },
+  "currentLocation": "Mevcut Konum",
   "customSearchArea": "Özel arama alanı",
   "distance": "Mesafe",
   "distanceLineFromSearch": "Aramadan <strong>{{distance}}</strong>",
   "distanceLineFromSearchLocation": "<strong>{{distance}}</strong>, {{searchLocation}}'den",
   "distanceLineFromYou": "<strong>{{distance}}</strong> sizden",
+  "email": "E-posta",
   "enableCookies": "Çerezleri Etkinleştir",
   "fields": {
     "faqs": "Sık sorulan sorular",

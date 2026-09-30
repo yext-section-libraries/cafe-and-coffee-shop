@@ -1,4 +1,5 @@
 {
+  "address": "Cím",
   "brandAndSocials": "Márka és közösségi média",
   "breadcrumb": "Zsemlemorzsa",
   "callToAction": "Felhívás cselekvésre",
@@ -13,11 +14,13 @@
     "breadcrumbs": "Zsemlemorzsa",
     "reviews": "Vélemények"
   },
+  "currentLocation": "Jelenlegi hely",
   "customSearchArea": "Egyedi keresési terület",
   "distance": "Távolság",
   "distanceLineFromSearch": "<strong>{{distance}}</strong> a keresésből",
   "distanceLineFromSearchLocation": "<strong>{{distance}}</strong> od {{searchLocation}}",
   "distanceLineFromYou": "<strong>{{distance}}</strong>",
+  "email": "Email",
   "enableCookies": "Cookie-k engedélyezése",
   "fields": {
     "faqs": "Gyakori kérdések",
