@@ -1,3 +1,5 @@
+import type { StyledTextValue } from "@yext/visual-editor";
+import { TypographyScope, resolveTextStyles } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -43,13 +45,7 @@ export type CafeAndCoffeeShopReviewsProps = {
   };
   heading: {
     text: YextEntityField<TranslatableString>;
-    styles: {
-      fontFamily: string;
-      fontSize: string;
-      fontWeight: string;
-      fontStyle: string;
-      textTransform: string;
-    };
+    styles: StyledTextValue;
     fontColor: ThemeColor | undefined;
   };
   content: {
@@ -58,13 +54,7 @@ export type CafeAndCoffeeShopReviewsProps = {
     };
     subheading: {
       text: YextEntityField<TranslatableString>;
-      styles: {
-        fontFamily: string;
-        fontSize: string;
-        fontWeight: string;
-        fontStyle: string;
-        textTransform: string;
-      };
+      styles: StyledTextValue;
       fontColor: ThemeColor | undefined;
     };
   };
@@ -73,80 +63,6 @@ export type CafeAndCoffeeShopReviewsProps = {
 const REVIEW_TOP_REVIEWS_FIELD_PATH = "ref_reviewsAgg.topReviews";
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #reviews-section,
 #reviews-section * {
   box-sizing: border-box;
@@ -167,9 +83,6 @@ a, button {
   margin: 0 0 2rem;
   color: var(--cr-reviews-heading, #ffffff);
   text-align: center;
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.08;
-  font-weight: 700;
 }
 
 #reviews-section .reviews__summary {
@@ -178,8 +91,6 @@ a, button {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  font-size: 18px;
-  line-height: 1.2;
 }
 
 #reviews-section .reviews__summary-main,
@@ -187,7 +98,6 @@ a, button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  line-height: 1.2;
 }
 
 #reviews-section .reviews__summary > *,
@@ -201,7 +111,6 @@ a, button {
 #reviews-section .reviews__score {
   display: inline-flex;
   align-items: center;
-  font-weight: 600;
 }
 
 #reviews-section .reviews__label {
@@ -211,8 +120,6 @@ a, button {
   margin: 0 !important;
   margin-top: 0 !important;
   padding: 0 !important;
-  font-weight: 600;
-  line-height: 1.2;
 }
 
 #reviews-section .reviews__stars {
@@ -221,14 +128,11 @@ a, button {
   margin: 0 !important;
   padding: 0 !important;
   gap: 2px;
-  letter-spacing: 0.03em;
-  line-height: 1;
 }
 
 #reviews-section .reviews__stars > span {
   display: inline-flex;
   align-items: center;
-  line-height: 1;
 }
 
 #reviews-section .reviews__count,
@@ -243,9 +147,6 @@ a, button {
 #reviews-section .reviews__recent {
   margin: 0 0 1.5rem;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.2;
-  font-weight: 400;
 }
 
 #reviews-section .reviews__grid {
@@ -270,9 +171,6 @@ a, button {
 
 #reviews-section .review-card__head h3 {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.1;
-  font-weight: 500;
 }
 
 #reviews-section .review-card__meta {
@@ -287,57 +185,33 @@ a, button {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.28rem;
-  font-size: 16px;
-  line-height: 1.3;
-  font-weight: 500;
-  letter-spacing: 0.02em;
   opacity: 1;
-}
-
-#reviews-section .review-card__rating .reviews__label {
-  font-size: inherit;
-  line-height: inherit;
 }
 
 #reviews-section .review-card__score {
   display: inline-flex;
   align-items: center;
-  line-height: 1.3;
-  font-weight: 600;
 }
 
 #reviews-section .review-card__stars {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  line-height: 1;
 }
 
 #reviews-section .review-card__stars > span {
   display: inline-flex;
   align-items: center;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1;
 }
 
 #reviews-section .review-card__date {
   display: block;
   margin: 0;
-  font-size: 16px;
-  line-height: 1.3;
-  font-weight: 400;
   opacity: 0.9;
 }
 
 #reviews-section .review-card__text {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
   opacity: 1;
 }
 
@@ -604,31 +478,30 @@ export const CafeAndCoffeeShopReviewsFields: YextFields<CafeAndCoffeeShopReviews
     },
   };
 
-const CafeAndCoffeeShopReviewsDefaultProps: CafeAndCoffeeShopReviewsProps =
-  {
-    section: {
-      backgroundColor: {
-        selectedColor: "palette-secondary",
-        contrastingColor: "palette-secondary-contrast",
-      },
-      visibleOnLivePage: true,
+const CafeAndCoffeeShopReviewsDefaultProps: CafeAndCoffeeShopReviewsProps = {
+  section: {
+    backgroundColor: {
+      selectedColor: "palette-secondary",
+      contrastingColor: "palette-secondary-contrast",
     },
-    heading: {
-      text: createTextField("Reviews"),
+    visibleOnLivePage: true,
+  },
+  heading: {
+    text: createTextField("Reviews"),
+    styles: defaultTextStyles,
+    fontColor: undefined,
+  },
+  content: {
+    rating: {
+      showStarsLabel: true,
+    },
+    subheading: {
+      text: createTextField(""),
       styles: defaultTextStyles,
       fontColor: undefined,
     },
-    content: {
-      rating: {
-        showStarsLabel: true,
-      },
-      subheading: {
-        text: createTextField(""),
-        styles: defaultTextStyles,
-        fontColor: undefined,
-      },
-    },
-  };
+  },
+};
 
 const CafeAndCoffeeShopReviewsComponent = (
   props: CafeAndCoffeeShopReviewsProps & {
@@ -638,9 +511,9 @@ const CafeAndCoffeeShopReviewsComponent = (
     };
   },
 ) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const entityReviews = getFirstPartyTopReviews(streamDocument);
@@ -745,26 +618,7 @@ const CafeAndCoffeeShopReviewsComponent = (
                     color:
                       toThemeCss(props.heading.fontColor?.selectedColor) ??
                       sectionForeground,
-                    fontFamily:
-                      props.heading.styles.fontFamily === "default"
-                        ? undefined
-                        : props.heading.styles.fontFamily,
-                    fontSize:
-                      props.heading.styles.fontSize === "default"
-                        ? undefined
-                        : props.heading.styles.fontSize,
-                    fontWeight:
-                      props.heading.styles.fontWeight === "default"
-                        ? undefined
-                        : props.heading.styles.fontWeight,
-                    fontStyle:
-                      props.heading.styles.fontStyle === "default"
-                        ? undefined
-                        : props.heading.styles.fontStyle,
-                    textTransform:
-                      props.heading.styles.textTransform === "default"
-                        ? undefined
-                        : props.heading.styles.textTransform,
+                    ...resolveTextStyles(props.heading.styles),
                   }}
                 >
                   {resolveTextFieldValue(
@@ -843,30 +697,7 @@ const CafeAndCoffeeShopReviewsComponent = (
                           toThemeCss(
                             props.content.subheading.fontColor?.selectedColor,
                           ) ?? sectionForeground,
-                        fontFamily:
-                          props.content.subheading.styles.fontFamily ===
-                          "default"
-                            ? undefined
-                            : props.content.subheading.styles.fontFamily,
-                        fontSize:
-                          props.content.subheading.styles.fontSize === "default"
-                            ? undefined
-                            : props.content.subheading.styles.fontSize,
-                        fontWeight:
-                          props.content.subheading.styles.fontWeight ===
-                          "default"
-                            ? undefined
-                            : props.content.subheading.styles.fontWeight,
-                        fontStyle:
-                          props.content.subheading.styles.fontStyle ===
-                          "default"
-                            ? undefined
-                            : props.content.subheading.styles.fontStyle,
-                        textTransform:
-                          props.content.subheading.styles.textTransform ===
-                          "default"
-                            ? undefined
-                            : props.content.subheading.styles.textTransform,
+                        ...resolveTextStyles(props.content.subheading.styles),
                       }}
                     >
                       {resolveTextFieldValue(
@@ -973,15 +804,19 @@ const CafeAndCoffeeShopReviewsComponent = (
 
 export const CafeAndCoffeeShopReviews: YextComponentConfig<CafeAndCoffeeShopReviewsProps> =
   {
-    label: msg("components.reviews", "Reviews"),
+    label: msg("components.reviewsSection", "Reviews Section"),
     fields: CafeAndCoffeeShopReviewsFields,
     defaultProps: CafeAndCoffeeShopReviewsDefaultProps,
-    render: (props) => <CafeAndCoffeeShopReviewsComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopReviewsComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopReviews",
-  displayName: "Reviews",
+  displayName: "Reviews Section",
   description: "Reviews",
   pageSetTypes: ["ENTITY"],
 };

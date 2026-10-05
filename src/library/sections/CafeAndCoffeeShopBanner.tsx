@@ -1,3 +1,4 @@
+import { CafeRichText, TypographyScope, resolveTextStyles } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import { isValidElement } from "react";
@@ -8,7 +9,6 @@ import {
   msg,
   Body,
   EntityField,
-  MaybeRTF,
   PageSection,
   type StyledTextValue,
   type ThemeColor,
@@ -58,71 +58,69 @@ const isRichTextEmpty = (value: unknown): boolean => {
   return false;
 };
 
-const CafeAndCoffeeShopBannerFields: YextFields<CafeAndCoffeeShopBannerProps> = {
-  data: {
-    label: msg("fields.bannerText", "Banner Text"),
-    type: "object",
-    objectFields: {
-      text: {
-        label: msg("fields.text", "Text"),
-        type: "entityField",
-        filter: {
-          types: ["type.rich_text_v2"],
+const CafeAndCoffeeShopBannerFields: YextFields<CafeAndCoffeeShopBannerProps> =
+  {
+    data: {
+      label: msg("fields.bannerText", "Banner Text"),
+      type: "object",
+      objectFields: {
+        text: {
+          label: msg("fields.text", "Text"),
+          type: "entityField",
+          filter: {
+            types: ["type.rich_text_v2"],
+          },
+        },
+        styles: {
+          label: msg("fields.textStyles", "Text Styles"),
+          type: "styledText",
+        },
+        fontColor: {
+          label: msg("fields.textColor", "Text Color"),
+          type: "basicSelector",
+          options: "SITE_COLOR",
         },
       },
-      styles: {
-        label: msg("fields.textStyles", "Text Styles"),
-        type: "styledText",
-      },
-      fontColor: {
-        label: msg("fields.textColor", "Text Color"),
-        type: "basicSelector",
-        options: "SITE_COLOR",
+    },
+    styles: {
+      label: msg("fields.styles", "Styles"),
+      type: "object",
+      objectFields: {
+        textAlignment: {
+          label: msg("fields.textAlignment", "Text Alignment"),
+          type: "radio",
+          options: [
+            { label: msg("fields.options.left", "Left"), value: "left" },
+            { label: msg("fields.options.center", "Center"), value: "center" },
+            { label: msg("fields.options.right", "Right"), value: "right" },
+          ],
+        },
       },
     },
-  },
-  styles: {
-    label: msg("fields.styles", "Styles"),
-    type: "object",
-    objectFields: {
-      textAlignment: {
-        label: msg("fields.textAlignment", "Text Alignment"),
-        type: "radio",
-        options: [
-          { label: msg("fields.options.left", "Left"), value: "left" },
-          { label: msg("fields.options.center", "Center"), value: "center" },
-          { label: msg("fields.options.right", "Right"), value: "right" },
-        ],
+    section: {
+      label: msg("fields.section", "Section"),
+      type: "object",
+      objectFields: {
+        backgroundColor: {
+          label: msg("fields.backgroundColor", "Background Color"),
+          type: "basicSelector",
+          options: "BACKGROUND_COLOR",
+        },
+        visibleOnLivePage: {
+          label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
+          type: "radio",
+          options: [
+            { label: msg("fields.options.yes", "Yes"), value: true },
+            { label: msg("fields.options.no", "No"), value: false },
+          ],
+        },
       },
     },
-  },
-  section: {
-    label: msg("fields.section", "Section"),
-    type: "object",
-    objectFields: {
-      backgroundColor: {
-        label: msg("fields.backgroundColor", "Background Color"),
-        type: "basicSelector",
-        options: "BACKGROUND_COLOR",
-      },
-      visibleOnLivePage: {
-        label: msg("fields.visibleOnLivePage", "Visible on Live Page"),
-        type: "radio",
-        options: [
-          { label: msg("fields.options.yes", "Yes"), value: true },
-          { label: msg("fields.options.no", "No"), value: false },
-        ],
-      },
-    },
-  },
-};
+  };
 
-const CafeAndCoffeeShopBannerComponent: PuckComponent<CafeAndCoffeeShopBannerProps> = ({
-  data,
-  styles,
-  section,
-  puck,
-}) => {
+const CafeAndCoffeeShopBannerComponent: PuckComponent<
+  CafeAndCoffeeShopBannerProps
+> = ({ data, styles, section, puck }) => {
   const { i18n } = useTranslation();
   const streamDocument = useDocument();
   const sectionStyle = getSurfaceColorStyle(
@@ -152,10 +150,10 @@ const CafeAndCoffeeShopBannerComponent: PuckComponent<CafeAndCoffeeShopBannerPro
         <div className="relative flex h-20 w-full flex-row items-center justify-center gap-3 rounded-lg border border-gray-200 bg-gray-100 px-4">
           <CircleSlash2 className="h-10 w-10 flex-shrink-0 text-gray-400" />
           <div className="flex flex-col items-start">
-            <Body className="font-medium text-gray-500" variant="sm">
+            <Body className="text-gray-500" variant="sm">
               Section hidden for this page
             </Body>
-            <Body className="font-normal text-gray-500" variant="sm">
+            <Body className="text-gray-500" variant="sm">
               The mapped banner field is empty
             </Body>
           </div>
@@ -165,7 +163,7 @@ const CafeAndCoffeeShopBannerComponent: PuckComponent<CafeAndCoffeeShopBannerPro
   }
 
   const richTextStyleOverrides = {
-    ...data.styles,
+    ...resolveTextStyles(data.styles),
     color: data.fontColor ?? section.backgroundColor.contrastingColor,
   };
   const resolvedText = resolveComponentData(
@@ -197,9 +195,9 @@ const CafeAndCoffeeShopBannerComponent: PuckComponent<CafeAndCoffeeShopBannerPro
         fieldId={data.text.field}
       >
         {isValidElement(resolvedText) ? (
-          resolvedText
+          <CafeRichText data={resolvedText} richTextStyleOverrides={richTextStyleOverrides} />
         ) : typeof resolvedText === "string" ? (
-          <MaybeRTF
+          <CafeRichText
             data={resolvedText}
             richTextStyleOverrides={richTextStyleOverrides}
           />
@@ -212,49 +210,52 @@ const CafeAndCoffeeShopBannerComponent: PuckComponent<CafeAndCoffeeShopBannerPro
 /**
  * Displays a full-width, editor-configurable rich-text banner.
  */
-export const CafeAndCoffeeShopBanner: YextComponentConfig<CafeAndCoffeeShopBannerProps> = {
-  label: msg("components.banner", "Banner"),
-  fields: toPuckFields<CafeAndCoffeeShopBannerProps>(
-    CafeAndCoffeeShopBannerFields,
-  ),
-  defaultProps: {
-    data: {
-      text: {
-        field: "",
-        constantValue: {
-          defaultValue: getDefaultRTF("Banner Text"),
+export const CafeAndCoffeeShopBanner: YextComponentConfig<CafeAndCoffeeShopBannerProps> =
+  {
+    label: msg("components.bannerSection", "Banner Section"),
+    fields: toPuckFields<CafeAndCoffeeShopBannerProps>(
+      CafeAndCoffeeShopBannerFields,
+    ),
+    defaultProps: {
+      data: {
+        text: {
+          field: "",
+          constantValue: {
+            defaultValue: getDefaultRTF("Banner Text"),
+          },
+          constantValueEnabled: true,
         },
-        constantValueEnabled: true,
+        styles: {
+          fontFamily: "default",
+          fontSize: "default",
+          fontWeight: "default",
+          fontStyle: "default",
+          textTransform: "default",
+        },
       },
       styles: {
-        fontFamily: "default",
-        fontSize: "default",
-        fontWeight: "default",
-        fontStyle: "default",
-        textTransform: "default",
+        textAlignment: "center",
+      },
+      section: {
+        backgroundColor: backgroundColors.color1.value,
+        visibleOnLivePage: true,
       },
     },
-    styles: {
-      textAlignment: "center",
-    },
-    section: {
-      backgroundColor: backgroundColors.color1.value,
-      visibleOnLivePage: true,
-    },
-  },
-  render: (props) => (
-    <VisibilityWrapper
-      isEditing={props.puck.isEditing}
-      liveVisibility={props.section.visibleOnLivePage}
-    >
-      <CafeAndCoffeeShopBannerComponent {...props} />
-    </VisibilityWrapper>
-  ),
-};
+    render: (props) => (
+      <VisibilityWrapper
+        isEditing={props.puck.isEditing}
+        liveVisibility={props.section.visibleOnLivePage}
+      >
+        <TypographyScope>
+          <CafeAndCoffeeShopBannerComponent {...props} />
+        </TypographyScope>
+      </VisibilityWrapper>
+    ),
+  };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopBanner",
-  displayName: "Banner",
+  displayName: "Banner Section",
   description: "Banner",
-  pageSetTypes: ["ENTITY"],
+  pageSetTypes: ["ENTITY", "DIRECTORY", "LOCATOR"],
 };

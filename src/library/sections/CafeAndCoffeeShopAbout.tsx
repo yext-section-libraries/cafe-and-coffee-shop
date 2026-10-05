@@ -1,3 +1,4 @@
+import { CafeRichText, TypographyScope } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -13,7 +14,6 @@ import {
   getSurfaceColorStyle,
   msg,
   resolveComponentData,
-  MaybeRTF,
   type StreamDocument,
   type StyledImageValue,
   type StyledTextValue,
@@ -91,80 +91,6 @@ const createImageField = (
 });
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 
 .cafe-scope .section-offerings .split--text-right,
 .cafe-scope .section-offerings .split--text-right * {
@@ -212,16 +138,10 @@ a, button {
 
 .cafe-scope .section-offerings .split--text-right .split__title {
   margin: 0 0 2rem;
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.08;
-  font-weight: 700;
 }
 
 .cafe-scope .section-offerings .split--text-right .split__body p {
   margin: 0 0 1rem;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .cafe-scope .section-offerings .split--text-right .split__body p:last-child {
@@ -383,26 +303,25 @@ export const CafeAndCoffeeShopAboutFields: YextFields<CafeAndCoffeeShopAboutProp
     },
   };
 
-export const CafeAndCoffeeShopAboutDefaultProps: CafeAndCoffeeShopAboutProps =
-  {
-    section: {
-      backgroundColor: {
-        selectedColor: "palette-secondary",
-        contrastingColor: "palette-secondary-contrast",
-      },
-      visibleOnLivePage: true,
+export const CafeAndCoffeeShopAboutDefaultProps: CafeAndCoffeeShopAboutProps = {
+  section: {
+    backgroundColor: {
+      selectedColor: "palette-secondary",
+      contrastingColor: "palette-secondary-contrast",
     },
-    heading: defaultHeading,
-    sectionImage: createImageField(aboutImageUrl, 1267, 1900, "About image"),
-    content: defaultContent,
-  };
+    visibleOnLivePage: true,
+  },
+  heading: defaultHeading,
+  sectionImage: createImageField(aboutImageUrl, 1267, 1900, "About image"),
+  content: defaultContent,
+};
 
 const CafeAndCoffeeShopAboutComponent: PuckComponent<
   CafeAndCoffeeShopAboutProps
 > = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const sectionImage = resolveComponentData(
@@ -443,8 +362,7 @@ const CafeAndCoffeeShopAboutComponent: PuckComponent<
       props.sectionImage.imageConstrain === "filled" ? "cover" : "contain",
   };
   const richTextStyleOverrides = {
-    color:
-      getThemeColorCssValue(props.content.fontColor) ?? sectionStyle.color,
+    color: getThemeColorCssValue(props.content.fontColor) ?? sectionStyle.color,
   };
   const resolvedContent = resolveComponentData(
     props.content.text,
@@ -455,9 +373,9 @@ const CafeAndCoffeeShopAboutComponent: PuckComponent<
     typeof resolvedContent === "string" ||
     React.isValidElement(resolvedContent) ? (
       React.isValidElement(resolvedContent) ? (
-        resolvedContent
+        <CafeRichText data={resolvedContent} richTextStyleOverrides={richTextStyleOverrides} />
       ) : (
-        <MaybeRTF
+        <CafeRichText
           data={resolvedContent}
           richTextStyleOverrides={richTextStyleOverrides}
         />
@@ -555,15 +473,19 @@ const CafeAndCoffeeShopAboutComponent: PuckComponent<
 
 export const CafeAndCoffeeShopAbout: YextComponentConfig<CafeAndCoffeeShopAboutProps> =
   {
-    label: msg("components.about", "About"),
+    label: msg("components.aboutSection", "About Section"),
     fields: CafeAndCoffeeShopAboutFields,
     defaultProps: CafeAndCoffeeShopAboutDefaultProps,
-    render: (props) => <CafeAndCoffeeShopAboutComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopAboutComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopAbout",
-  displayName: "About",
+  displayName: "About Section",
   description: "About",
   pageSetTypes: ["ENTITY"],
 };

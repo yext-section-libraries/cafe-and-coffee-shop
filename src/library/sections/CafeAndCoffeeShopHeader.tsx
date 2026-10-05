@@ -1,3 +1,5 @@
+import { CafeCTA } from "../shared/CafeCTA";
+import { TypographyScope, resolveTextStyles } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -14,7 +16,6 @@ import {
 import {
   msg,
   Background,
-  ComprehensiveCTA,
   type ComprehensiveCTAValue,
   EntityField,
   Image,
@@ -169,7 +170,7 @@ const getTextStyles = ({
   styles,
 }: {
   color?: ThemeColor;
-  styles: Pick<
+  styles?: Pick<
     StyledLinkValue,
     | "fontFamily"
     | "fontSize"
@@ -181,14 +182,9 @@ const getTextStyles = ({
 }): React.CSSProperties => {
   return {
     color: getThemeColorCssValue(color),
-    fontFamily: styles.fontFamily === "default" ? undefined : styles.fontFamily,
-    fontSize: styles.fontSize === "default" ? undefined : styles.fontSize,
-    fontWeight: styles.fontWeight === "default" ? undefined : styles.fontWeight,
-    fontStyle: styles.fontStyle === "default" ? undefined : styles.fontStyle,
-    textTransform:
-      styles.textTransform === "default" ? undefined : styles.textTransform,
+    ...resolveTextStyles(styles),
     letterSpacing:
-      styles.letterSpacing === "default" ? undefined : styles.letterSpacing,
+      styles?.letterSpacing === "default" ? undefined : styles?.letterSpacing,
   };
 };
 
@@ -582,10 +578,10 @@ const CafeAndCoffeeShopHeaderFields: YextFields<CafeAndCoffeeShopHeaderProps> =
 const CafeAndCoffeeShopHeaderComponent: PuckComponent<
   CafeAndCoffeeShopHeaderProps
 > = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const analytics = useAnalytics();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument.locale ?? "en";
+  const locale = i18n.language;
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   const resolvedLogoImage = resolveComponentData(
@@ -817,7 +813,7 @@ const CafeAndCoffeeShopHeaderComponent: PuckComponent<
               fieldId={item.cta.data.cta.field}
               constantValueEnabled={item.cta.data.cta.constantValueEnabled}
             >
-              <ComprehensiveCTA
+              <CafeCTA
                 value={item.cta as Partial<ComprehensiveCTAValue>}
                 eventName={`headerCta${index}`}
                 className="inline-flex h-10 items-center justify-center px-5 transition-opacity hover:opacity-90"
@@ -990,7 +986,7 @@ const CafeAndCoffeeShopHeaderComponent: PuckComponent<
                   topBarCtaItem.cta.data.cta.constantValueEnabled
                 }
               >
-                <ComprehensiveCTA
+                <CafeCTA
                   value={topBarCtaItem.cta as Partial<ComprehensiveCTAValue>}
                   eventName="responsiveTopBarCta"
                   className="inline-flex h-10 items-center justify-center px-5 transition-opacity hover:opacity-90"
@@ -1065,7 +1061,7 @@ const CafeAndCoffeeShopHeaderComponent: PuckComponent<
                             item.cta.data.cta.constantValueEnabled
                           }
                         >
-                          <ComprehensiveCTA
+                          <CafeCTA
                             value={item.cta as Partial<ComprehensiveCTAValue>}
                             eventName={`tabletOverlayCta${index}`}
                             className="inline-flex h-10 w-full items-center justify-center px-5 transition-opacity hover:opacity-90"
@@ -1085,7 +1081,7 @@ const CafeAndCoffeeShopHeaderComponent: PuckComponent<
                             item.cta.data.cta.constantValueEnabled
                           }
                         >
-                          <ComprehensiveCTA
+                          <CafeCTA
                             value={item.cta as Partial<ComprehensiveCTAValue>}
                             eventName={`mobileOverlayCta${index}`}
                             className="inline-flex h-10 w-full items-center justify-center px-5 transition-opacity hover:opacity-90"
@@ -1286,7 +1282,9 @@ export const CafeAndCoffeeShopHeader: YextComponentConfig<CafeAndCoffeeShopHeade
       <AnalyticsScopeProvider
         name={`CafeAndCoffeeShopHeader${getAnalyticsScopeHash(props.id)}`}
       >
-        <CafeAndCoffeeShopHeaderComponent {...props} />
+        <TypographyScope>
+          <CafeAndCoffeeShopHeaderComponent {...props} />
+        </TypographyScope>
       </AnalyticsScopeProvider>
     ),
   };

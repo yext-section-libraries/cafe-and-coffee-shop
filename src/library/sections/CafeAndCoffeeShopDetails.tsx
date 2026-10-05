@@ -1,3 +1,5 @@
+import { CafeCTA } from "../shared/CafeCTA";
+import { TypographyScope } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -14,7 +16,6 @@ import {
 import { parsePhoneNumber } from "awesome-phonenumber";
 import {
   msg,
-  ComprehensiveCTA,
   getAnalyticsScopeHash,
   getSurfaceColorStyle,
   getThemeColorCssValue,
@@ -501,80 +502,6 @@ const CafeAndCoffeeShopDetailsDefaultProps: CafeAndCoffeeShopDetailsProps =
   };
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #local-section-template--23715283763541__flex_grid_jfAa6Y,
 #local-section-template--23715283763541__flex_grid_jfAa6Y * {
   box-sizing: border-box;
@@ -586,23 +513,10 @@ a, button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 0.5rem 1.25rem;
   border-radius: 999px;
   border: 1px solid;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 400;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
-}
-
-#local-section-template--23715283763541__flex_grid_jfAa6Y .button--small {
-  padding: 0.5rem 1rem;
-}
-
-#local-section-template--23715283763541__flex_grid_jfAa6Y .button.button--outline {
-  background-color: transparent !important;
 }
 
 .cafe-scope.no-touchevents #local-section-template--23715283763541__flex_grid_jfAa6Y .button.button--has-fill:hover,
@@ -631,9 +545,6 @@ a, button {
 #local-section-template--23715283763541__flex_grid_jfAa6Y .details__title {
   margin: 0 0 2rem;
   text-align: center;
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.08;
-  font-weight: 700;
 }
 
 #local-section-template--23715283763541__flex_grid_jfAa6Y .details__grid {
@@ -665,9 +576,6 @@ a, button {
 
 #local-section-template--23715283763541__flex_grid_jfAa6Y .details__card h3 {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 600;
 }
 
 #local-section-template--23715283763541__flex_grid_jfAa6Y .details__card h3:not(:first-child) {
@@ -684,9 +592,6 @@ a, button {
 #local-section-template--23715283763541__flex_grid_jfAa6Y .hours,
 #local-section-template--23715283763541__flex_grid_jfAa6Y .hours__note {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 #local-section-template--23715283763541__flex_grid_jfAa6Y .details__links {
@@ -698,9 +603,6 @@ a, button {
 
 #local-section-template--23715283763541__flex_grid_jfAa6Y .details__links a:not(.button) {
   text-decoration: underline;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 400;
   padding-bottom: 3px;
   transition: color 0.16s ease;
 }
@@ -748,12 +650,6 @@ a, button {
 
 #local-section-template--23715283763541__flex_grid_jfAa6Y .hours__note {
   margin: 1.1rem 0 0 !important;
-  font-size: 16px !important;
-  line-height: 1.5;
-}
-
-#local-section-template--23715283763541__flex_grid_jfAa6Y .hours__note strong {
-  font-weight: 700;
 }
 
 @media (max-width: 1023px) {
@@ -801,7 +697,7 @@ const CafeAndCoffeeShopDetailsComponent: PuckComponent<
 > = (props) => {
   const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const isEditing = Boolean(props.puck?.isEditing);
@@ -1070,7 +966,7 @@ const CafeAndCoffeeShopDetailsComponent: PuckComponent<
                         props.websiteLink.data.cta.constantValueEnabled
                       }
                     >
-                      <ComprehensiveCTA
+                      <CafeCTA
                         value={
                           props.websiteLink as Partial<ComprehensiveCTAValue>
                         }
@@ -1085,7 +981,7 @@ const CafeAndCoffeeShopDetailsComponent: PuckComponent<
                         props.directionsLink.data.cta.constantValueEnabled
                       }
                     >
-                      <ComprehensiveCTA
+                      <CafeCTA
                         value={
                           props.directionsLink as Partial<ComprehensiveCTAValue>
                         }
@@ -1194,15 +1090,19 @@ const CafeAndCoffeeShopDetailsComponent: PuckComponent<
 
 export const CafeAndCoffeeShopDetails: YextComponentConfig<CafeAndCoffeeShopDetailsProps> =
   {
-    label: msg("components.details", "Details"),
+    label: msg("components.detailsSection", "Details Section"),
     fields: CafeAndCoffeeShopDetailsFields,
     defaultProps: CafeAndCoffeeShopDetailsDefaultProps,
-    render: (props) => <CafeAndCoffeeShopDetailsComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopDetailsComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopDetails",
-  displayName: "Details",
+  displayName: "Details Section",
   description: "Details",
   pageSetTypes: ["ENTITY"],
 };
