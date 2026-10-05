@@ -1,3 +1,5 @@
+import { CafeCTA } from "../shared/CafeCTA";
+import { CafeRichText, TypographyScope } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -6,7 +8,6 @@ import { AnalyticsScopeProvider } from "@yext/pages-components";
 import type { ComplexImageType, ImageType } from "@yext/pages-components";
 import {
   msg,
-  ComprehensiveCTA,
   Background,
   EntityField,
   Image,
@@ -15,7 +16,6 @@ import {
   getThemeColorCssValue,
   isDarkColor,
   resolveComponentData,
-  MaybeRTF,
   type StreamDocument,
   type StyledImageValue,
   type StyledTextValue,
@@ -104,80 +104,6 @@ const createImageField = (
 });
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #events-section,
 #events-section * {
   box-sizing: border-box;
@@ -189,19 +115,10 @@ a, button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.5rem;
-  padding: 0.7rem 1.15rem;
   border-radius: 999px;
   border: 1px solid transparent;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 400;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
-}
-
-#events-section .button.button--outline {
-  background-color: transparent !important;
 }
 
 .cafe-scope.no-touchevents #events-section .button.button--has-fill:hover,
@@ -248,16 +165,10 @@ a, button {
 #events-section .events__title {
   margin: 0 0 2rem;
   text-align: left;
-  font-size: clamp(28px, 3vw, 46px);
-  line-height: 1.15;
-  font-weight: 700;
 }
 
 #events-section .events__panel--text p {
   margin: 0 0 1rem;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 #events-section .events__panel--text p:last-of-type {
@@ -314,14 +225,6 @@ a, button {
   #events-section .events__panel--image img {
     height: auto;
   }
-
-  #events-section .events__title {
-    font-size: clamp(24px, 6vw, 38px);
-  }
-
-  #events-section .events__panel--text p {
-    font-size: 16px;
-  }
 }
 
 @media (max-width: 700px) {
@@ -332,14 +235,6 @@ a, button {
   #events-section .events__panel--image {
     width: calc(100% + 28px);
     margin-inline: -14px;
-  }
-
-  #events-section .events__title {
-    font-size: clamp(22px, 8vw, 34px);
-  }
-
-  #events-section .events__panel--text p {
-    font-size: 16px;
   }
 }
 `;
@@ -558,9 +453,9 @@ const CafeAndCoffeeShopEventsComponent = (
     };
   },
 ) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const isEditing = Boolean(props.puck?.isEditing);
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
@@ -676,9 +571,9 @@ const CafeAndCoffeeShopEventsComponent = (
                       }
                     >
                       {React.isValidElement(resolvedParagraphs) ? (
-                        resolvedParagraphs
+                        <CafeRichText data={resolvedParagraphs} richTextStyleOverrides={richTextStyleOverrides} />
                       ) : typeof resolvedParagraphs === "string" ? (
-                        <MaybeRTF
+                        <CafeRichText
                           data={resolvedParagraphs}
                           richTextStyleOverrides={richTextStyleOverrides}
                         />
@@ -693,7 +588,7 @@ const CafeAndCoffeeShopEventsComponent = (
                         props.content.button.data.cta.constantValueEnabled
                       }
                     >
-                      <ComprehensiveCTA
+                      <CafeCTA
                         value={props.content.button}
                         className={getEventsCtaClassName(props.content.button)}
                         style={getEventsCtaStyle(
@@ -735,15 +630,19 @@ const CafeAndCoffeeShopEventsComponent = (
 
 export const CafeAndCoffeeShopEvents: YextComponentConfig<CafeAndCoffeeShopEventsProps> =
   {
-    label: msg("components.events", "Events"),
+    label: msg("components.eventsSection", "Events Section"),
     fields: CafeAndCoffeeShopEventsFields,
     defaultProps: CafeAndCoffeeShopEventsDefaultProps,
-    render: (props) => <CafeAndCoffeeShopEventsComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopEventsComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopEvents",
-  displayName: "Events",
+  displayName: "Events Section",
   description: "Events",
   pageSetTypes: ["ENTITY"],
 };

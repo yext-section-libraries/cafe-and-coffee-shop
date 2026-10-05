@@ -1,3 +1,5 @@
+import type { StyledTextValue } from "@yext/visual-editor";
+import { TypographyScope, resolveTextStyles } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import type { PuckContext } from "@puckeditor/core";
@@ -9,6 +11,7 @@ import type {
   StatusParams,
 } from "@yext/pages-components";
 import * as React from "react";
+import type { TFunction } from "i18next";
 import { useTranslation } from "react-i18next";
 import {
   Address,
@@ -41,85 +44,9 @@ import {
   type YextEntityField,
   type YextFields,
 } from "@yext/visual-editor";
-import {
-  resolveTextFieldValue,
-} from "../shared/sectionHelpers";
+import { resolveTextFieldValue } from "../shared/sectionHelpers";
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #locations-section,
 #locations-section * {
   box-sizing: border-box;
@@ -147,9 +74,6 @@ a, button {
   margin: 0 0 2rem;
   text-align: center;
   color: var(--cr-locations-heading, #d2a180);
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.08;
-  font-weight: 700;
 }
 
 #locations-section .locations__map {
@@ -195,8 +119,6 @@ a, button {
   border-radius: 16px;
   background: var(--cr-locations-bg, #121212);
   color: currentColor;
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 #locations-section .location-card {
@@ -210,16 +132,10 @@ a, button {
 
 #locations-section .location-card h3 {
   margin: 0;
-  font-size: 20px;
-  line-height: 1.12;
-  font-weight: 700;
 }
 
 #locations-section .location-card__name-link {
   color: inherit;
-  font: inherit;
-  font-weight: inherit;
-  line-height: inherit;
   text-decoration: none;
 }
 
@@ -232,9 +148,6 @@ a, button {
 
 #locations-section .location-card p {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
   opacity: 1;
 }
 
@@ -247,26 +160,14 @@ a, button {
   gap: 0.6rem;
 }
 
-#locations-section .location-card__hours .HoursTable {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
 #locations-section .location-card__hours .HoursTable-row {
   padding: 0.12rem 0;
-}
-
-#locations-section .location-card__hours .HoursTable-day,
-#locations-section .location-card__hours .HoursTable-intervals {
-  font-size: inherit;
 }
 
 #locations-section .location-card__distance {
   margin-top: 0.35rem;
   padding-top: 0.55rem;
   border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
-  font-size: 15px;
-  line-height: 1.45;
 }
 
 #locations-section .location-card__cta {
@@ -277,15 +178,10 @@ a, button {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  min-height: 42px;
-  padding: 0.7rem 1.25rem;
   border: 1px solid currentColor;
   border-radius: 999px;
   background: transparent;
   color: inherit;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 400;
   text-decoration: none;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
@@ -328,10 +224,6 @@ a, button {
   #locations-section .locations__map {
     min-height: 240px;
   }
-
-  #locations-section .location-card h3 {
-    font-size: 18px;
-  }
 }`;
 
 type CafeAndCoffeeShopLocationsProps = {
@@ -341,13 +233,7 @@ type CafeAndCoffeeShopLocationsProps = {
   };
   heading: {
     text: YextEntityField<TranslatableString>;
-    styles: {
-      fontFamily: string;
-      fontSize: string;
-      fontWeight: string;
-      fontStyle: string;
-      textTransform: string;
-    };
+    styles: StyledTextValue;
     fontColor?: ThemeColor;
   };
   map: {
@@ -367,14 +253,6 @@ type CafeAndCoffeeShopLocationsProps = {
     showHours: boolean;
     showPhone: boolean;
     showAddress: boolean;
-    content: {
-      loadingText: YextEntityField<TranslatableString>;
-      emptyText: YextEntityField<TranslatableString>;
-      nearbyLocationFallbackName: YextEntityField<TranslatableString>;
-      directionsLabel: YextEntityField<TranslatableString>;
-      distanceTemplateMiles: YextEntityField<TranslatableString>;
-      distanceTemplateKilometers: YextEntityField<TranslatableString>;
-    };
     hoursStyles: {
       showCurrentStatus: boolean;
       timeFormat: "12h" | "24h";
@@ -525,48 +403,6 @@ const fields: YextFields<CafeAndCoffeeShopLocationsProps> = {
           { label: msg("fields.options.no", "No"), value: false },
         ],
       },
-      content: {
-        label: msg("fields.content", "Content"),
-        type: "object",
-        objectFields: {
-          loadingText: {
-            label: msg("fields.loadingText", "Loading Text"),
-            type: "entityField",
-            filter: { includeListsOnly: false, types: ["type.string"] },
-            disableConstantValueToggle: false,
-          },
-          emptyText: {
-            label: msg("fields.emptyStateText", "Empty State Text"),
-            type: "entityField",
-            filter: { includeListsOnly: false, types: ["type.string"] },
-            disableConstantValueToggle: false,
-          },
-          nearbyLocationFallbackName: {
-            label: msg("fields.fallbackLocationName", "Fallback Location Name"),
-            type: "entityField",
-            filter: { includeListsOnly: false, types: ["type.string"] },
-            disableConstantValueToggle: false,
-          },
-          directionsLabel: {
-            label: msg("fields.directionsLabel", "Directions Label"),
-            type: "entityField",
-            filter: { includeListsOnly: false, types: ["type.string"] },
-            disableConstantValueToggle: false,
-          },
-          distanceTemplateMiles: {
-            label: msg("fields.distanceTemplateMiles", "Distance Template (Miles)"),
-            type: "entityField",
-            filter: { includeListsOnly: false, types: ["type.string"] },
-            disableConstantValueToggle: false,
-          },
-          distanceTemplateKilometers: {
-            label: msg("fields.distanceTemplateKilometers", "Distance Template (Kilometers)"),
-            type: "entityField",
-            filter: { includeListsOnly: false, types: ["type.string"] },
-            disableConstantValueToggle: false,
-          },
-        },
-      },
       hoursStyles: {
         label: msg("fields.hoursStyles", "Hours Styles"),
         type: "object",
@@ -583,8 +419,14 @@ const fields: YextFields<CafeAndCoffeeShopLocationsProps> = {
             label: msg("fields.timeFormat", "Time Format"),
             type: "select",
             options: [
-              { label: msg("fields.options.hour12Label", "12 Hour"), value: "12h" },
-              { label: msg("fields.options.hour24Label", "24 Hour"), value: "24h" },
+              {
+                label: msg("fields.options.hour12Label", "12 Hour"),
+                value: "12h",
+              },
+              {
+                label: msg("fields.options.hour24Label", "24 Hour"),
+                value: "24h",
+              },
             ],
           },
           dayOfWeekFormat: {
@@ -613,12 +455,21 @@ const fields: YextFields<CafeAndCoffeeShopLocationsProps> = {
             label: msg("fields.phoneNumberFormat", "Phone Number Format"),
             type: "radio",
             options: [
-              { label: msg("fields.options.domestic", "Domestic"), value: "domestic" },
-              { label: msg("fields.options.international", "International"), value: "international" },
+              {
+                label: msg("fields.options.domestic", "Domestic"),
+                value: "domestic",
+              },
+              {
+                label: msg("fields.options.international", "International"),
+                value: "international",
+              },
             ],
           },
           includeHyperlink: {
-            label: msg("fields.includePhoneHyperlink", "Include Phone Hyperlink"),
+            label: msg(
+              "fields.includePhoneHyperlink",
+              "Include Phone Hyperlink",
+            ),
             type: "radio",
             options: [
               { label: msg("fields.options.yes", "Yes"), value: true },
@@ -702,38 +553,6 @@ const defaultProps: CafeAndCoffeeShopLocationsProps = {
     showHours: true,
     showPhone: true,
     showAddress: true,
-    content: {
-      loadingText: {
-        field: "",
-        constantValue: "Loading nearby locations",
-        constantValueEnabled: true,
-      },
-      emptyText: {
-        field: "",
-        constantValue: "No nearby locations found for this location",
-        constantValueEnabled: true,
-      },
-      nearbyLocationFallbackName: {
-        field: "",
-        constantValue: "Nearby Location",
-        constantValueEnabled: true,
-      },
-      directionsLabel: {
-        field: "",
-        constantValue: "Get Directions",
-        constantValueEnabled: true,
-      },
-      distanceTemplateMiles: {
-        field: "",
-        constantValue: "Located {distance} miles from this location",
-        constantValueEnabled: true,
-      },
-      distanceTemplateKilometers: {
-        field: "",
-        constantValue: "Located {distance} km from this location",
-        constantValueEnabled: true,
-      },
-    },
     hoursStyles: {
       showCurrentStatus: true,
       timeFormat: "12h",
@@ -786,8 +605,7 @@ const getDistanceMiles = (
 const formatDistanceText = (
   currentCoordinate: Coordinate | undefined,
   nearbyCoordinate: Coordinate | undefined,
-  milesTemplate: string,
-  kilometerTemplate: string,
+  t: TFunction,
   countryCode?: string,
 ) => {
   const distanceMiles = getDistanceMiles(currentCoordinate, nearbyCoordinate);
@@ -796,13 +614,18 @@ const formatDistanceText = (
   const preferredUnit = getPreferredDistanceUnit(countryCode ?? "US");
   if (preferredUnit === "kilometer") {
     const distanceKilometers = distanceMiles * 1.60934;
-    return kilometerTemplate.replace(
-      "{distance}",
-      distanceKilometers.toFixed(1),
+    return t(
+      "locatedKilometersFromLocation",
+      "Located {{distance}} kilometers from this location",
+      { distance: distanceKilometers.toFixed(1) },
     );
   }
 
-  return milesTemplate.replace("{distance}", distanceMiles.toFixed(1));
+  return t(
+    "locatedMilesFromLocation",
+    "Located {{distance}} miles from this location",
+    { distance: distanceMiles.toFixed(1) },
+  );
 };
 
 const getLocationName = (locationData: any, fallbackName: string) => {
@@ -865,17 +688,21 @@ const hasNearbyStatusDetail = (status: StatusParams) =>
   !status.currentInterval?.is24h?.() &&
   Boolean(status.futureInterval);
 
-const getNearbyStatusTime = (status: StatusParams) => {
+const getNearbyStatusTime = (status: StatusParams, locale: string) => {
   if (!hasNearbyStatusDetail(status)) {
     return "";
   }
 
   return status.isOpen
-    ? (status.currentInterval?.getEndTime("en-US", status.timeOptions) ?? "")
-    : (status.futureInterval?.getStartTime("en-US", status.timeOptions) ?? "");
+    ? (status.currentInterval?.getEndTime(locale, status.timeOptions) ?? "")
+    : (status.futureInterval?.getStartTime(locale, status.timeOptions) ?? "");
 };
 
-const getNearbyStatusDay = (status: StatusParams, showDayNames: boolean) => {
+const getNearbyStatusDay = (
+  status: StatusParams,
+  showDayNames: boolean,
+  locale: string,
+) => {
   if (!showDayNames || !hasNearbyStatusDetail(status)) {
     return "";
   }
@@ -884,29 +711,43 @@ const getNearbyStatusDay = (status: StatusParams, showDayNames: boolean) => {
 
   return status.isOpen
     ? (status.currentInterval?.end
-        ?.setLocale("en-US")
+        ?.setLocale(locale)
         .toLocaleString(dayOptions) ?? "")
     : (status.futureInterval?.start
-        ?.setLocale("en-US")
+        ?.setLocale(locale)
         .toLocaleString(dayOptions) ?? "");
 };
 
 const renderNearbyHoursStatus = (
   status: StatusParams,
   showDayNames: boolean,
+  t: TFunction,
+  locale: string,
 ) => {
   const currentLabel = status.comingSoon
-    ? "Coming Soon"
+    ? t("comingSoon", "Coming Soon")
     : status.currentInterval?.is24h?.()
-      ? "Open 24 Hours"
+      ? t("open24Hours", "Open 24 Hours")
       : !status.futureInterval
-        ? "Temporarily Closed"
+        ? t("temporarilyClosed", "Temporarily Closed")
         : status.isOpen
-          ? "Open Now"
-          : "Closed";
-  const detailPrefix = status.isOpen ? "Closes at" : "Opens at";
-  const detailTime = getNearbyStatusTime(status);
-  const detailDay = getNearbyStatusDay(status, showDayNames);
+          ? t("openNow", "Open Now")
+          : t("closed", "Closed");
+  const detailTime = getNearbyStatusTime(status, locale);
+  const detailDay = getNearbyStatusDay(status, showDayNames, locale);
+  const detailText = status.isOpen
+    ? detailDay
+      ? t("closesAtTimeWeek", "Closes at {{time}} {{dayOfWeek}}", {
+          time: detailTime,
+          dayOfWeek: detailDay,
+        })
+      : t("closesAtTime", "Closes at {{time}}", { time: detailTime })
+    : detailDay
+      ? t("opensAtTimeWeek", "Opens at {{time}} {{dayOfWeek}}", {
+          time: detailTime,
+          dayOfWeek: detailDay,
+        })
+      : t("opensAtTime", "Opens at {{time}}", { time: detailTime });
 
   return (
     <div className="HoursStatus">
@@ -914,11 +755,7 @@ const renderNearbyHoursStatus = (
       {hasNearbyStatusDetail(status) ? (
         <>
           <span className="HoursStatus-separator"> - </span>
-          <span className="HoursStatus-future">{detailPrefix}</span>
-          <span className="HoursStatus-time"> {detailTime}</span>
-          {detailDay ? (
-            <span className="HoursStatus-dayOfWeek"> {detailDay}</span>
-          ) : null}
+          <span className="HoursStatus-future">{detailText}</span>
         </>
       ) : null}
     </div>
@@ -944,30 +781,9 @@ const NearbyLocationsContent = ({
   sectionForeground: string | undefined;
   locale: string;
 }) => {
-  const fallbackLocationName = resolveTextFieldValue(
-    nearby.content.nearbyLocationFallbackName,
-    locale,
-    streamDocument,
-    "Nearby Location",
-  );
-  const directionsLabel = resolveTextFieldValue(
-    nearby.content.directionsLabel,
-    locale,
-    streamDocument,
-    "Get Directions",
-  );
-  const distanceTemplateMiles = resolveTextFieldValue(
-    nearby.content.distanceTemplateMiles,
-    locale,
-    streamDocument,
-    "Located {distance} miles from this location",
-  );
-  const distanceTemplateKilometers = resolveTextFieldValue(
-    nearby.content.distanceTemplateKilometers,
-    locale,
-    streamDocument,
-    "Located {distance} km from this location",
-  );
+  const { t } = useTranslation();
+  const fallbackLocationName = t("nearbyLocation", "Nearby Location");
+  const directionsLabel = t("getDirections", "Get Directions");
   return (
     <>
       {docs.map((locationData, index) => {
@@ -976,14 +792,6 @@ const NearbyLocationsContent = ({
           mergedDocument,
           relativePrefixToRoot ?? "",
         );
-        const usesFallbackLocationName =
-          !(
-            typeof locationData?.name === "string" && locationData.name.trim()
-          ) &&
-          !(
-            typeof locationData?.dm_directoryName === "string" &&
-            locationData.dm_directoryName.trim()
-          );
         const name = getLocationName(locationData, fallbackLocationName);
         const address = locationData?.address as AddressType | undefined;
         const phone = getLocationPhone(locationData);
@@ -991,16 +799,9 @@ const NearbyLocationsContent = ({
         const distanceText = formatDistanceText(
           currentCoordinate,
           locationData?.yextDisplayCoordinate,
-          distanceTemplateMiles,
-          distanceTemplateKilometers,
+          t,
           streamDocument?.address?.countryCode,
         );
-        const distanceTemplateField =
-          getPreferredDistanceUnit(
-            streamDocument?.address?.countryCode ?? "US",
-          ) === "kilometer"
-            ? nearby.content.distanceTemplateKilometers
-            : nearby.content.distanceTemplateMiles;
         const directionsUrl = getDirections(
           address,
           locationData?.listings,
@@ -1047,32 +848,13 @@ const NearbyLocationsContent = ({
                 color: nearbyTitleColor,
               }}
             >
-              {usesFallbackLocationName ? (
-                <EntityField
-                  displayName="Fallback Location Name"
-                  fieldId={nearby.content.nearbyLocationFallbackName.field}
-                  constantValueEnabled={
-                    nearby.content.nearbyLocationFallbackName
-                      .constantValueEnabled
-                  }
-                >
-                  <a
-                    className="location-card__name-link"
-                    href={resolvedUrl}
-                    target="_top"
-                  >
-                    {name}
-                  </a>
-                </EntityField>
-              ) : (
-                <a
-                  className="location-card__name-link"
-                  href={resolvedUrl}
-                  target="_top"
-                >
-                  {name}
-                </a>
-              )}
+              <a
+                className="location-card__name-link"
+                href={resolvedUrl}
+                target="_top"
+              >
+                {name}
+              </a>
             </h3>
             {nearby.showAddress && address ? (
               <Address
@@ -1081,9 +863,6 @@ const NearbyLocationsContent = ({
                 showCountry={nearby.address.showCountry}
                 style={{
                   color: nearbyDetailColor,
-                  fontSize: "16px",
-                  lineHeight: 1.5,
-                  fontWeight: 400,
                   margin: 0,
                 }}
               />
@@ -1136,6 +915,8 @@ const NearbyLocationsContent = ({
                       renderNearbyHoursStatus(
                         status,
                         nearby.hoursStyles.showDayNames,
+                        t,
+                        locale,
                       )
                     }
                   />
@@ -1143,46 +924,36 @@ const NearbyLocationsContent = ({
                   <HoursTable
                     hours={hours}
                     comingSoon={streamDocument?.comingSoon}
+                    intervalTranslations={{
+                      isClosed: t("closed", "Closed"),
+                      open24Hours: t("open24Hours", "Open 24 Hours"),
+                      reopenDate: t("reopenDate", "Reopen Date"),
+                      timeFormatLocale: locale,
+                    }}
                   />
                 )}
               </div>
             ) : null}
             {distanceText ? (
-              <EntityField
-                displayName="Distance Text"
-                fieldId={distanceTemplateField.field}
-                constantValueEnabled={
-                  distanceTemplateField.constantValueEnabled
-                }
+              <p
+                className="location-card__distance"
+                style={{
+                  color: nearbyDetailColor,
+                }}
               >
-                <p
-                  className="location-card__distance"
-                  style={{
-                    color: nearbyDetailColor,
-                  }}
-                >
-                  {distanceText}
-                </p>
-              </EntityField>
+                {distanceText}
+              </p>
             ) : null}
             {directionsUrl ? (
-              <EntityField
-                displayName="Directions Label"
-                fieldId={nearby.content.directionsLabel.field}
-                constantValueEnabled={
-                  nearby.content.directionsLabel.constantValueEnabled
-                }
+              <Link
+                href={directionsUrl}
+                className="location-card__cta cafe-cta cafe-cta--secondary"
+                style={{
+                  color: nearbyCtaColor,
+                }}
               >
-                <Link
-                  href={directionsUrl}
-                  className="location-card__cta"
-                  style={{
-                    color: nearbyCtaColor,
-                  }}
-                >
-                  {directionsLabel}
-                </Link>
-              </EntityField>
+                {directionsLabel}
+              </Link>
             ) : null}
           </article>
         );
@@ -1192,22 +963,18 @@ const NearbyLocationsContent = ({
 };
 
 const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
   const { relativePrefixToRoot } = useTemplateProps<{
     relativePrefixToRoot?: string;
   }>();
   const isEditing = Boolean(props.puck?.isEditing);
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const nearby = {
     ...defaultProps.nearby,
     ...props.nearby,
-    content: {
-      ...defaultProps.nearby.content,
-      ...props.nearby?.content,
-    },
     hoursStyles: {
       ...defaultProps.nearby.hoursStyles,
       ...props.nearby?.hoursStyles,
@@ -1266,16 +1033,9 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
   const sectionForeground = sectionStyle.color;
   const statusTextColor =
     toThemeCss(nearby.statusColor?.selectedColor) ?? sectionForeground;
-  const loadingText = resolveTextFieldValue(
-    nearby.content.loadingText,
-    locale,
-    streamDocument,
-    "Loading nearby locations",
-  );
-  const emptyText = resolveTextFieldValue(
-    nearby.content.emptyText,
-    locale,
-    streamDocument,
+  const loadingText = t("loadingNearbyLocations", "Loading nearby locations");
+  const emptyText = t(
+    "noNearbyLocationsFoundForThisLocation",
     "No nearby locations found for this location",
   );
   const headingText = resolveTextFieldValue(
@@ -1336,26 +1096,7 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
                     color:
                       toThemeCss(props.heading.fontColor?.selectedColor) ??
                       sectionForeground,
-                    fontFamily:
-                      props.heading.styles.fontFamily === "default"
-                        ? undefined
-                        : props.heading.styles.fontFamily,
-                    fontSize:
-                      props.heading.styles.fontSize === "default"
-                        ? undefined
-                        : props.heading.styles.fontSize,
-                    fontWeight:
-                      props.heading.styles.fontWeight === "default"
-                        ? undefined
-                        : props.heading.styles.fontWeight,
-                    fontStyle:
-                      props.heading.styles.fontStyle === "default"
-                        ? undefined
-                        : props.heading.styles.fontStyle,
-                    textTransform:
-                      props.heading.styles.textTransform === "default"
-                        ? undefined
-                        : props.heading.styles.textTransform,
+                    ...resolveTextStyles(props.heading.styles),
                   }}
                 >
                   {headingText}
@@ -1379,42 +1120,26 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
               </div>
               {shouldShowNearbyLoading ? (
                 <div className="locations__grid">
-                  <EntityField
-                    displayName="Loading Text"
-                    fieldId={nearby.content.loadingText.field}
-                    constantValueEnabled={
-                      nearby.content.loadingText.constantValueEnabled
-                    }
+                  <p
+                    className="locations__status"
+                    style={{
+                      color: statusTextColor,
+                    }}
                   >
-                    <p
-                      className="locations__status"
-                      style={{
-                        color: statusTextColor,
-                      }}
-                    >
-                      {loadingText}
-                    </p>
-                  </EntityField>
+                    {loadingText}
+                  </p>
                 </div>
               ) : null}
               {shouldShowNearbyPlaceholder ? (
                 <div className="locations__grid">
-                  <EntityField
-                    displayName="Empty State Text"
-                    fieldId={nearby.content.emptyText.field}
-                    constantValueEnabled={
-                      nearby.content.emptyText.constantValueEnabled
-                    }
+                  <p
+                    className="locations__status"
+                    style={{
+                      color: statusTextColor,
+                    }}
                   >
-                    <p
-                      className="locations__status"
-                      style={{
-                        color: statusTextColor,
-                      }}
-                    >
-                      {emptyText}
-                    </p>
-                  </EntityField>
+                    {emptyText}
+                  </p>
                 </div>
               ) : null}
               {shouldShowNearbyCards ? (
@@ -1441,17 +1166,19 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
 
 export const CafeAndCoffeeShopLocations: YextComponentConfig<CafeAndCoffeeShopLocationsProps> =
   {
-    label: msg("fields.locations", "Locations"),
+    label: msg("components.nearbyLocationsSection", "Nearby Locations Section"),
     fields,
     defaultProps,
     render: (props) => (
-      <CafeAndCoffeeShopLocationsComponent {...(props as RuntimeProps)} />
+      <TypographyScope>
+          <CafeAndCoffeeShopLocationsComponent {...(props as RuntimeProps)} />
+        </TypographyScope>
     ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopLocations",
-  displayName: "Locations",
+  displayName: "Nearby Locations Section",
   description: "Locations",
   pageSetTypes: ["ENTITY"],
 };

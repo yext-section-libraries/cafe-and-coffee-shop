@@ -1,3 +1,4 @@
+import { CafeRichText, TypographyScope, resolveTextStyles } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import type { PuckComponent } from "@puckeditor/core";
@@ -11,7 +12,6 @@ import {
   getAnalyticsScopeHash,
   getSurfaceColorStyle,
   getThemeColorCssValue,
-  MaybeRTF,
   resolveComponentData,
   type StreamDocument,
   type StyledTextValue,
@@ -35,80 +35,6 @@ import {
 } from "../shared/sectionHelpers";
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #faqs-section,
 #faqs-section * {
   box-sizing: border-box;
@@ -132,9 +58,6 @@ a, button {
   margin: 0 0 2rem;
   text-align: center;
   color: var(--cr-faq-heading);
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.08;
-  font-weight: 700;
 }
 
 #faqs-section .faqs__list {
@@ -165,9 +88,6 @@ a, button {
   cursor: pointer;
   padding: clamp(1.15rem, 1.8vw, 1.5rem) clamp(1.15rem, 2.2vw, 2rem) clamp(1.15rem, 1.8vw, 1.5rem) clamp(2.65rem, 3.4vw, 3rem);
   position: relative;
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 1.2;
-  font-weight: 500;
   text-decoration: none;
   transition: color 0.28s ease;
 }
@@ -244,13 +164,6 @@ a, button {
 
 #faqs-section .faqs__answer > :last-child {
   margin-bottom: 0;
-}
-
-#faqs-section .faqs__answer p,
-#faqs-section .faqs__answer li {
-  font-size: 16px;
-  line-height: 1.6;
-  font-weight: 400;
 }
 
 #faqs-section + .local-section-group-footer-group {
@@ -463,36 +376,35 @@ export const CafeAndCoffeeShopFaqFields: YextFields<CafeAndCoffeeShopFaqProps> =
     },
   };
 
-export const CafeAndCoffeeShopFaqDefaultProps: CafeAndCoffeeShopFaqProps =
-  {
-    section: {
-      visibleOnLivePage: true,
+export const CafeAndCoffeeShopFaqDefaultProps: CafeAndCoffeeShopFaqProps = {
+  section: {
+    visibleOnLivePage: true,
+    backgroundColor: {
+      selectedColor: "palette-primary",
+      contrastingColor: "palette-primary-contrast",
+    },
+  },
+  heading: createStyledText("FAQs", undefined),
+  content: {
+    faqs: faqSource.defaultValue,
+    styles: {
       backgroundColor: {
         selectedColor: "palette-primary",
         contrastingColor: "palette-primary-contrast",
       },
+      question: createTextAppearance(),
+      answer: createTextAppearance(),
     },
-    heading: createStyledText("FAQs", undefined),
-    content: {
-      faqs: faqSource.defaultValue,
-      styles: {
-        backgroundColor: {
-          selectedColor: "palette-primary",
-          contrastingColor: "palette-primary-contrast",
-        },
-        question: createTextAppearance(),
-        answer: createTextAppearance(),
-      },
-    },
-  };
+  },
+};
 
 const CafeAndCoffeeShopFaqComponent: PuckComponent<
   CafeAndCoffeeShopFaqProps
 > = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [openIndex, setOpenIndex] = React.useState(0);
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const resolvedFaqs = faqSource.resolveItems(
@@ -514,8 +426,7 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
   const accordionForeground =
     getThemeColorCssValue(
       props.content.styles.backgroundColor.contrastingColor,
-    ) ??
-    sectionForeground;
+    ) ?? sectionForeground;
 
   const questionStyle = getStyledTextStyle(
     props.content.styles.question.styles,
@@ -589,7 +500,7 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
                       streamDocument,
                     );
                     const answerRichTextStyleOverrides = {
-                      ...props.content.styles.answer.styles,
+                      ...resolveTextStyles(props.content.styles.answer.styles),
                       color: answerStyle.color,
                     };
                     const resolvedAnswer = item.answer
@@ -628,9 +539,9 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
                           <div className="faqs__panel-inner">
                             <div className="faqs__answer" style={answerStyle}>
                               {React.isValidElement(resolvedAnswer) ? (
-                                resolvedAnswer
+                                <CafeRichText data={resolvedAnswer} richTextStyleOverrides={answerRichTextStyleOverrides} />
                               ) : typeof resolvedAnswer === "string" ? (
-                                <MaybeRTF
+                                <CafeRichText
                                   data={resolvedAnswer}
                                   richTextStyleOverrides={
                                     answerRichTextStyleOverrides
@@ -655,15 +566,19 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
 
 export const CafeAndCoffeeShopFaq: YextComponentConfig<CafeAndCoffeeShopFaqProps> =
   {
-    label: msg("components.faq", "FAQ"),
+    label: msg("components.faqSection", "FAQ Section"),
     fields: CafeAndCoffeeShopFaqFields,
     defaultProps: CafeAndCoffeeShopFaqDefaultProps,
-    render: (props) => <CafeAndCoffeeShopFaqComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopFaqComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopFaq",
-  displayName: "FAQ",
+  displayName: "FAQ Section",
   description: "FAQ",
   pageSetTypes: ["ENTITY"],
 };

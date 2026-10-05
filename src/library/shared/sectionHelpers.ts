@@ -1,3 +1,4 @@
+import { resolveTextStyles } from "./typography";
 import type { CSSProperties } from "react";
 import type { ComplexImageType, ImageType } from "@yext/pages-components";
 import {
@@ -82,20 +83,16 @@ export const resolveTextFieldValue = (
     fallback,
   ).trim();
 
-export const getStyleValue = (value: string): string | undefined =>
-  value === "default" || value.length === 0 ? undefined : value;
+export const getStyleValue = (value?: string): string | undefined =>
+  !value || value === "default" ? undefined : value;
 
 export const getStyledTextStyle = (
-  styles: StyledTextValue,
+  styles?: Partial<StyledTextValue>,
   color?: ThemeColor | string,
   fallbackColor?: string,
 ): CSSProperties => ({
   color: getThemeColorCssValue(color) ?? fallbackColor,
-  fontFamily: getStyleValue(styles.fontFamily),
-  fontSize: getStyleValue(styles.fontSize),
-  fontWeight: getStyleValue(styles.fontWeight),
-  fontStyle: getStyleValue(styles.fontStyle),
-  textTransform: getStyleValue(styles.textTransform),
+  ...resolveTextStyles(styles),
 });
 
 export const hasImageSource = (

@@ -1,3 +1,4 @@
+import { TypographyScope } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -31,80 +32,6 @@ import {
 } from "../shared/sectionHelpers";
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #breadcrumbs-section,
 #breadcrumbs-section * {
   box-sizing: border-box;
@@ -143,10 +70,6 @@ a, button {
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 500;
-  letter-spacing: 0.08em;
 }
 
 #breadcrumbs-section .breadcrumbs__link {
@@ -165,15 +88,10 @@ a, button {
   display: inline-flex;
   align-items: center;
   opacity: 0.72;
-  font-size: 12px;
-  line-height: 1;
 }
 
 #breadcrumbs-section .breadcrumbs__empty {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 400;
   opacity: 0.88;
 }
 
@@ -194,12 +112,6 @@ a, button {
 
   #breadcrumbs-section .breadcrumbs__item {
     gap: 0.45rem;
-  }
-
-  #breadcrumbs-section .breadcrumbs__link,
-  #breadcrumbs-section .breadcrumbs__current {
-    font-size: 12px;
-    letter-spacing: 0.06em;
   }
 }`;
 
@@ -288,7 +200,10 @@ export const CafeAndCoffeeShopBreadcrumbsFields: YextFields<CafeAndCoffeeShopBre
       type: "object",
       objectFields: {
         includeCurrentLocation: {
-          label: msg("fields.includeCurrentLocation", "Include Current Location"),
+          label: msg(
+            "fields.includeCurrentLocation",
+            "Include Current Location",
+          ),
           type: "radio",
           options: [
             { label: msg("fields.options.yes", "Yes"), value: true },
@@ -356,19 +271,20 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
     };
   },
 ) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<BreadcrumbStreamDocument>();
   const { relativePrefixToRoot } = useTemplateProps<{
     relativePrefixToRoot?: string;
   }>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const breadcrumbs = resolveBreadcrumbs(streamDocument) as BreadcrumbItem[];
   const sectionStyle = getSurfaceColorStyle(
     props.section.backgroundColor,
     streamDocument,
     { fallbackBackgroundColor: "#3B2416" },
   );
-  const sectionTextColor = sectionStyle?.color ??
+  const sectionTextColor =
+    sectionStyle?.color ??
     (isDarkColor(props.section.backgroundColor, streamDocument)
       ? "#FFFFFF"
       : "#000000");
@@ -402,7 +318,6 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
     return props.puck?.isEditing ? (
       <p
         style={{
-          fontFamily: "Arial, Helvetica, sans-serif",
           padding: "18px 24px",
         }}
       >
@@ -529,7 +444,6 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
                   className="breadcrumbs__empty"
                   style={{
                     color: sectionTextColor,
-                    fontFamily: "Arial, Helvetica, sans-serif",
                     padding: "18px 24px",
                   }}
                 >
@@ -551,15 +465,19 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
 
 export const CafeAndCoffeeShopBreadcrumbs: YextComponentConfig<CafeAndCoffeeShopBreadcrumbsProps> =
   {
-    label: msg("components.breadcrumbs", "Breadcrumbs"),
+    label: msg("components.breadcrumbsSection", "Breadcrumbs Section"),
     fields: CafeAndCoffeeShopBreadcrumbsFields,
     defaultProps: CafeAndCoffeeShopBreadcrumbsDefaultProps,
-    render: (props) => <CafeAndCoffeeShopBreadcrumbsComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopBreadcrumbsComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopBreadcrumbs",
-  displayName: "Breadcrumbs",
+  displayName: "Breadcrumbs Section",
   description: "Breadcrumbs",
   pageSetTypes: ["ENTITY"],
 };

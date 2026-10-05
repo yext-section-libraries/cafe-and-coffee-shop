@@ -1,3 +1,5 @@
+import { CafeCTA } from "../shared/CafeCTA";
+import { TypographyScope } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -7,7 +9,6 @@ import { AnalyticsScopeProvider } from "@yext/pages-components";
 import { HoursStatus, type HoursType } from "@yext/pages-components";
 import {
   msg,
-  ComprehensiveCTA,
   EntityField,
   getAnalyticsScopeHash,
   getAggregateRating,
@@ -172,8 +173,12 @@ const styledTextFields = (): YextFields<StyledTextProps> => ({
   },
 });
 
-const defaultHeading: CafeAndCoffeeShopHeroProps["heading"] =
-  createStyledText("", undefined, "name", false);
+const defaultHeading: CafeAndCoffeeShopHeroProps["heading"] = createStyledText(
+  "",
+  undefined,
+  "name",
+  false,
+);
 
 const defaultBackground: CafeAndCoffeeShopHeroProps["background"] = {
   image: createAssetImageField(heroImageUrl, 1900, 1267, "Hero image"),
@@ -209,11 +214,10 @@ const defaultHours: CafeAndCoffeeShopHeroProps["hours"] = {
   },
 };
 
-const defaultReviews: CafeAndCoffeeShopHeroProps["reviewsRatingAndCount"] =
-  {
-    showStarsLabel: true,
-    fontColor: undefined,
-  };
+const defaultReviews: CafeAndCoffeeShopHeroProps["reviewsRatingAndCount"] = {
+  showStarsLabel: true,
+  fontColor: undefined,
+};
 
 const defaultCtas: HeroCta[] = [
   {
@@ -295,8 +299,14 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
               label: msg("fields.timeFormat", "Time Format"),
               type: "select",
               options: [
-                { label: msg("fields.options.hour12Label", "12 Hour"), value: "12h" },
-                { label: msg("fields.options.hour24Label", "24 Hour"), value: "24h" },
+                {
+                  label: msg("fields.options.hour12Label", "12 Hour"),
+                  value: "12h",
+                },
+                {
+                  label: msg("fields.options.hour24Label", "24 Hour"),
+                  value: "24h",
+                },
               ],
             },
             dayOfWeekFormat: {
@@ -316,7 +326,10 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
               ],
             },
             openStatusBackgroundColor: {
-              label: msg("fields.openPillBackgroundColor", "Open Pill Background Color"),
+              label: msg(
+                "fields.openPillBackgroundColor",
+                "Open Pill Background Color",
+              ),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
@@ -326,12 +339,18 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
               options: "SITE_COLOR",
             },
             closedStatusBackgroundColor: {
-              label: msg("fields.closedPillBackgroundColor", "Closed Pill Background Color"),
+              label: msg(
+                "fields.closedPillBackgroundColor",
+                "Closed Pill Background Color",
+              ),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
             closedStatusTextColor: {
-              label: msg("fields.closedPillTextColor", "Closed Pill Text Color"),
+              label: msg(
+                "fields.closedPillTextColor",
+                "Closed Pill Text Color",
+              ),
               type: "basicSelector",
               options: "SITE_COLOR",
             },
@@ -378,98 +397,23 @@ export const CafeAndCoffeeShopHeroFields: YextFields<CafeAndCoffeeShopHeroProps>
     },
   };
 
-export const CafeAndCoffeeShopHeroDefaultProps: CafeAndCoffeeShopHeroProps =
-  {
-    section: {
-      visibleOnLivePage: true,
-      backgroundColor: {
-        selectedColor: "palette-primary",
-        contrastingColor: "palette-primary-contrast",
-      },
+export const CafeAndCoffeeShopHeroDefaultProps: CafeAndCoffeeShopHeroProps = {
+  section: {
+    visibleOnLivePage: true,
+    backgroundColor: {
+      selectedColor: "palette-primary",
+      contrastingColor: "palette-primary-contrast",
     },
-    heading: defaultHeading,
-    background: defaultBackground,
-    hours: defaultHours,
-    subheading: createStyledText("", undefined, "geomodifier", false),
-    reviewsRatingAndCount: defaultReviews,
-    ctas: defaultCtas,
-  };
+  },
+  heading: defaultHeading,
+  background: defaultBackground,
+  hours: defaultHours,
+  subheading: createStyledText("", undefined, "geomodifier", false),
+  reviewsRatingAndCount: defaultReviews,
+  ctas: defaultCtas,
+};
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #local-section-template--23715283763541__flex_slideshow_ypPb7P,
 #local-section-template--23715283763541__flex_slideshow_ypPb7P * {
   box-sizing: border-box;
@@ -481,23 +425,10 @@ a, button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
-  padding: 0.5rem 1.25rem;
   border-radius: 999px;
   border: 1px solid;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 400;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, opacity 0.18s ease;
-}
-
-#local-section-template--23715283763541__flex_slideshow_ypPb7P .button--small {
-  padding: 0.5rem 1rem;
-}
-
-#local-section-template--23715283763541__flex_slideshow_ypPb7P .button.button--outline {
-  background-color: transparent !important;
 }
 
 .cafe-scope.no-touchevents #local-section-template--23715283763541__flex_slideshow_ypPb7P .button.button--has-fill:hover,
@@ -553,16 +484,10 @@ a, button {
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-brandline {
   margin: 0 0 1rem;
-  font-size: 24px;
-  line-height: 1;
-  font-weight: 400;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-title-main {
   margin: 0;
-  font-size: 48px;
-  line-height: 0.96;
-  font-weight: 700;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-rating-line {
@@ -571,8 +496,6 @@ a, button {
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
-  font-size: 16px;
-  line-height: 1;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-rating-main,
@@ -580,13 +503,11 @@ a, button {
   display: inline-flex;
   align-items: center;
   gap: 0.28rem;
-  line-height: 1;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-rating-score {
   display: inline-flex;
   align-items: center;
-  font-weight: 600;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-stars,
@@ -595,11 +516,6 @@ a, button {
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-rating-label {
   display: inline-flex;
   align-items: center;
-  line-height: 1;
-}
-
-#local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-rating-label {
-  font-weight: 600;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-stars,
@@ -618,8 +534,6 @@ a, button {
   align-items: center;
   gap: 0.95rem;
   flex-wrap: wrap;
-  font-size: 16px;
-  line-height: 1.5;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-open-pill {
@@ -628,11 +542,6 @@ a, button {
   justify-content: center;
   border-radius: 10px;
   padding: 0.46rem 0.88rem;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-close-time {
@@ -640,9 +549,6 @@ a, button {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.18rem;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-cta-group {
@@ -665,14 +571,6 @@ a, button {
 
   #local-section-template--23715283763541__flex_slideshow_ypPb7P .static-hero__text {
     max-width: 30rem;
-  }
-
-  #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-brandline {
-    font-size: 20px;
-  }
-
-  #local-section-template--23715283763541__flex_slideshow_ypPb7P .hero-title-main {
-    font-size: 30px;
   }
 }
 
@@ -783,7 +681,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
 > = (props) => {
   const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const isEditing = Boolean(props.puck?.isEditing);
   const heading = resolveTextFieldValue(
     props.heading.text,
@@ -871,7 +769,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
               <div className="static-hero__content container--large">
                 <Background
                   background={props.section.backgroundColor}
-                  className="static-hero__text card__text w-full sm:max-w-[54rem] "
+                  className="static-hero__text card__text w-full sm:max-w-[54rem]"
                   style={
                     {
                       padding: "32px",
@@ -1077,7 +975,8 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                   <div className="hero-cta-group">
                     {props.ctas.slice(0, 3).map(({ item }, index) => {
                       const variant = item.styles?.variant as
-                        string | undefined;
+                        | string
+                        | undefined;
                       const heroActionClass =
                         index === 0
                           ? " hero-action--call"
@@ -1119,7 +1018,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
                             item.data.cta.constantValueEnabled
                           }
                         >
-                          <ComprehensiveCTA
+                          <CafeCTA
                             value={item as Partial<ComprehensiveCTAValue>}
                             className={buttonClassName}
                             style={
@@ -1147,15 +1046,19 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
 
 export const CafeAndCoffeeShopHero: YextComponentConfig<CafeAndCoffeeShopHeroProps> =
   {
-    label: msg("hero", "Hero"),
+    label: msg("components.heroSection", "Hero Section"),
     fields: CafeAndCoffeeShopHeroFields,
     defaultProps: CafeAndCoffeeShopHeroDefaultProps,
-    render: (props) => <CafeAndCoffeeShopHeroComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopHeroComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopHero",
-  displayName: "Hero",
+  displayName: "Hero Section",
   description: "Hero",
   pageSetTypes: ["ENTITY"],
 };

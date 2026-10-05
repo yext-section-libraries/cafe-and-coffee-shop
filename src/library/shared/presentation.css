@@ -1,0 +1,30 @@
+/* Let line boxes follow the active font instead of inheriting a smaller
+   ancestor's computed line height. No component sets a fixed line spacing. */
+.cafe-typography,
+.cafe-typography :is(.components, p, li, h1, h2, h3, h4, h5, h6, a, button, address, .HoursTable) {
+  line-height: normal;
+}
+.cafe-typography .rtf-theme :is(p, li, h1, h2, h3, h4, h5, h6, a) {
+  line-height: normal !important;
+}
+
+/* Wide, shallow CTAs expand vertically when large text needs more room. */
+.cafe-typography :is(a.cafe-cta, button.cafe-cta) {
+  height: auto;
+  min-height: 0;
+  padding: 0.35rem 1.75rem;
+  white-space: normal;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.cafe-typography :is(a.cafe-cta, button.cafe-cta):is(:hover, :focus-visible, :active) {
+  text-decoration: none;
+}
+.cafe-typography .cafe-cta--secondary:is(:hover, :focus-visible) {
+  background-color: color-mix(in srgb, currentColor 18%, transparent) !important;
+}
+.cafe-typography .cafe-cta:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}

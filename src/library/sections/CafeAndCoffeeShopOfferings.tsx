@@ -1,3 +1,5 @@
+import type { StyledTextValue } from "@yext/visual-editor";
+import { TypographyScope, resolveTextStyles, getBodyTextStyle } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -41,13 +43,7 @@ type OfferingsImageProps = {
 
 type OfferingsTextListProps = {
   text: YextEntityField<TranslatableString[]>;
-  styles: {
-    fontFamily: string;
-    fontSize: string;
-    fontWeight: string;
-    fontStyle: string;
-    textTransform: string;
-  };
+  styles: StyledTextValue;
   fontColor: ThemeColor | undefined;
 };
 
@@ -58,13 +54,7 @@ export type CafeAndCoffeeShopOfferingsProps = {
   };
   heading: {
     text: YextEntityField<TranslatableString>;
-    styles: {
-      fontFamily: string;
-      fontSize: string;
-      fontWeight: string;
-      fontStyle: string;
-      textTransform: string;
-    };
+    styles: StyledTextValue;
     fontColor: ThemeColor | undefined;
   };
   content: OfferingsTextListProps;
@@ -100,80 +90,6 @@ const createImageField = (
 });
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 .cafe-scope .section-offerings .split--text-left,
 .cafe-scope .section-offerings .split--text-left * {
   box-sizing: border-box;
@@ -208,9 +124,6 @@ a, button {
 
 .cafe-scope .section-offerings .split--text-left .split__title {
   margin: 0 0 2rem;
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.08;
-  font-weight: 700;
 }
 
 .cafe-scope .section-offerings .split--text-left .split__offerings-list {
@@ -223,9 +136,6 @@ a, button {
   position: relative;
   padding-inline-start: 1.75rem;
   margin: 0 0 1rem;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 400;
 }
 
 .cafe-scope .section-offerings .split--text-left .split__offerings-list li::before {
@@ -439,9 +349,9 @@ const CafeAndCoffeeShopOfferingsComponent = (
     };
   },
 ) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const sectionImage = resolveComponentData(
@@ -523,26 +433,7 @@ const CafeAndCoffeeShopOfferingsComponent = (
                       className="split__title"
                       style={{
                         color: getThemeColorCssValue(props.heading.fontColor),
-                        fontFamily:
-                          props.heading.styles.fontFamily === "default"
-                            ? undefined
-                            : props.heading.styles.fontFamily,
-                        fontSize:
-                          props.heading.styles.fontSize === "default"
-                            ? undefined
-                            : props.heading.styles.fontSize,
-                        fontWeight:
-                          props.heading.styles.fontWeight === "default"
-                            ? undefined
-                            : props.heading.styles.fontWeight,
-                        fontStyle:
-                          props.heading.styles.fontStyle === "default"
-                            ? undefined
-                            : props.heading.styles.fontStyle,
-                        textTransform:
-                          props.heading.styles.textTransform === "default"
-                            ? undefined
-                            : props.heading.styles.textTransform,
+                        ...resolveTextStyles(props.heading.styles),
                       }}
                     >
                       {headingText}
@@ -563,26 +454,7 @@ const CafeAndCoffeeShopOfferingsComponent = (
                             color: getThemeColorCssValue(
                               props.content.fontColor,
                             ),
-                            fontFamily:
-                              props.content.styles.fontFamily === "default"
-                                ? undefined
-                                : props.content.styles.fontFamily,
-                            fontSize:
-                              props.content.styles.fontSize === "default"
-                                ? undefined
-                                : props.content.styles.fontSize,
-                            fontWeight:
-                              props.content.styles.fontWeight === "default"
-                                ? undefined
-                                : props.content.styles.fontWeight,
-                            fontStyle:
-                              props.content.styles.fontStyle === "default"
-                                ? undefined
-                                : props.content.styles.fontStyle,
-                            textTransform:
-                              props.content.styles.textTransform === "default"
-                                ? undefined
-                                : props.content.styles.textTransform,
+                            ...getBodyTextStyle(props.content.styles),
                           }}
                         >
                           {resolveComponentData(item, locale, streamDocument) ??
@@ -622,15 +494,19 @@ const CafeAndCoffeeShopOfferingsComponent = (
 
 export const CafeAndCoffeeShopOfferings: YextComponentConfig<CafeAndCoffeeShopOfferingsProps> =
   {
-    label: msg("fields.offerings", "Offerings"),
+    label: msg("fields.offerings", "Offerings Section"),
     fields: CafeAndCoffeeShopOfferingsFields,
     defaultProps: CafeAndCoffeeShopOfferingsDefaultProps,
-    render: (props) => <CafeAndCoffeeShopOfferingsComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopOfferingsComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopOfferings",
-  displayName: "Offerings",
+  displayName: "Offerings Section",
   description: "Offerings",
   pageSetTypes: ["ENTITY"],
 };

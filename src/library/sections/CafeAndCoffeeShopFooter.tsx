@@ -1,3 +1,5 @@
+import { CafeCTA } from "../shared/CafeCTA";
+import { TypographyScope, resolveTextStyles } from "../shared/typography";
 import type { SectionConfig } from "@yext/visual-editor";
 
 import * as React from "react";
@@ -10,7 +12,6 @@ import {
   type ImageType,
 } from "@yext/pages-components";
 import {
-  ComprehensiveCTA,
   type ComprehensiveCTAValue,
   EntityField,
   Image,
@@ -38,7 +39,6 @@ import {
   createTranslatableString,
   defaultButtonStyles,
   defaultTextStyles,
-  getStyleValue,
   getStyledTextStyle,
   hasImageSource,
   resolveTextFieldValue,
@@ -133,8 +133,14 @@ const linkTypeOptions = () => [
   { label: msg("fields.options.url", "URL"), value: "URL" },
   { label: msg("fields.options.email", "Email"), value: "Email" },
   { label: msg("fields.options.phone", "Phone"), value: "Phone" },
-  { label: msg("fields.options.drivingDirections", "Driving Directions"), value: "DRIVING_DIRECTIONS" },
-  { label: msg("fields.options.clickToWebsite", "Click To Website"), value: "CLICK_TO_WEBSITE" },
+  {
+    label: msg("fields.options.drivingDirections", "Driving Directions"),
+    value: "DRIVING_DIRECTIONS",
+  },
+  {
+    label: msg("fields.options.clickToWebsite", "Click To Website"),
+    value: "CLICK_TO_WEBSITE",
+  },
   { label: msg("fields.options.other", "Other"), value: "OTHER" },
 ];
 
@@ -480,80 +486,6 @@ export const CafeAndCoffeeShopFooterDefaultProps: CafeAndCoffeeShopFooterProps =
   };
 
 const CafeAndCoffeeShopStyles = String.raw`
-p {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-li {
-  font-family: var(--fontFamily-body-fontFamily);
-  font-size: var(--fontSize-body-fontSize);
-  line-height: 1.5;
-  font-weight: var(--fontWeight-body-fontWeight);
-  font-style: var(--fontStyle-body-fontStyle);
-  text-transform: var(--textTransform-body-textTransform);
-}
-h1 {
-  font-family: var(--fontFamily-h1-fontFamily);
-  font-size: var(--fontSize-h1-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h1-fontWeight);
-  font-style: var(--fontStyle-h1-fontStyle);
-  text-transform: var(--textTransform-h1-textTransform);
-}
-h2 {
-  font-family: var(--fontFamily-h2-fontFamily);
-  font-size: var(--fontSize-h2-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h2-fontWeight);
-  font-style: var(--fontStyle-h2-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h3 {
-  font-family: var(--fontFamily-h3-fontFamily);
-  font-size: var(--fontSize-h3-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h3-fontWeight);
-  font-style: var(--fontStyle-h3-fontStyle);
-  text-transform: var(--textTransform-h3-textTransform);
-}
-h4 {
-  font-family: var(--fontFamily-h4-fontFamily);
-  font-size: var(--fontSize-h4-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h4-fontWeight);
-  font-style: var(--fontStyle-h4-fontStyle);
-  text-transform: var(--textTransform-h4-textTransform);
-}
-h5 {
-  font-family: var(--fontFamily-h5-fontFamily);
-  font-size: var(--fontSize-h5-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h5-fontWeight);
-  font-style: var(--fontStyle-h5-fontStyle);
-  text-transform: var(--textTransform-h5-textTransform);
-}
-h6 {
-  font-family: var(--fontFamily-h6-fontFamily);
-  font-size: var(--fontSize-h6-fontSize);
-  line-height: 1.2;
-  font-weight: var(--fontWeight-h6-fontWeight);
-  font-style: var(--fontStyle-h6-fontStyle);
-  text-transform: var(--textTransform-h6-textTransform);
-}
-a, button {
-  font-family: var(--fontFamily-link-fontFamily);
-  font-size: var(--fontSize-link-fontSize);
-  font-weight: var(--fontWeight-link-fontWeight);
-  font-style: var(--fontStyle-link-fontStyle);
-  line-height: 1.5;
-  text-decoration: underline;
-  text-transform: var(--textTransform-link-textTransform);
-  letter-spacing: var(--letterSpacing-link-letterSpacing);
-}
 #local-section-sections--23715283370325__footer,
 #local-section-sections--23715283370325__footer * {
   box-sizing: border-box;
@@ -585,16 +517,11 @@ a, button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 0;
-  padding: 0.55rem 1rem;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, currentColor 80%, transparent);
   background: transparent;
   color: inherit;
   text-decoration: none;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 400;
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
@@ -627,30 +554,18 @@ a, button {
   width: 100%;
   margin: 0;
   color: inherit;
-  letter-spacing: 0.01em;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
-  font-size: clamp(18px, 2.4vw, 28px);
-  line-height: 0.98;
-  font-weight: 500;
 }
 
 #local-section-sections--23715283370325__footer .footer h3 {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.2;
-  font-weight: 500;
 }
 
 #local-section-sections--23715283370325__footer .footer p {
   margin: 1rem 0 0;
-  font-size: 14px;
-  line-height: 1.6;
-  font-weight: 400;
 }
 
 #local-section-sections--23715283370325__footer .footer__social {
@@ -718,9 +633,6 @@ a, button {
 #local-section-sections--23715283370325__footer .footer__links .menu-link,
 #local-section-sections--23715283370325__footer .footer__bottom nav a {
   text-decoration: none;
-  font-size: 16px;
-  line-height: 1.2;
-  font-weight: 400;
   transition: color 0.16s ease, opacity 0.18s ease;
 }
 
@@ -743,8 +655,6 @@ a, button {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  font-size: 14px;
-  line-height: 1.4;
   border-top: 1px solid color-mix(
     in srgb,
     var(--color-text-footer) 16%,
@@ -889,9 +799,9 @@ const resolveSocialIconAltText = (
 const CafeAndCoffeeShopFooterComponent: PuckComponent<
   CafeAndCoffeeShopFooterProps
 > = (props) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const streamDocument = useDocument<StreamDocument>();
-  const locale = streamDocument?.locale ?? "en";
+  const locale = i18n.language;
   const sectionStyle =
     getSurfaceColorStyle(props.section.backgroundColor, streamDocument) ?? {};
   const isEditing = Boolean(props.puck?.isEditing);
@@ -1074,7 +984,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
                           item.cta.data.cta.constantValueEnabled
                         }
                       >
-                        <ComprehensiveCTA
+                        <CafeCTA
                           value={item.cta as Partial<ComprehensiveCTAValue>}
                           className="footer__store-badge"
                         />
@@ -1105,7 +1015,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
                               cta.data.cta.constantValueEnabled
                             }
                           >
-                            <ComprehensiveCTA
+                            <CafeCTA
                               className="menu-link"
                               value={{
                                 ...cta,
@@ -1135,19 +1045,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
                       color: toThemeCss(
                         props.copyright.fontColor?.selectedColor,
                       ),
-                      fontFamily: getStyleValue(
-                        props.copyright.styles.fontFamily,
-                      ),
-                      fontSize: getStyleValue(props.copyright.styles.fontSize),
-                      fontWeight: getStyleValue(
-                        props.copyright.styles.fontWeight,
-                      ),
-                      fontStyle: getStyleValue(
-                        props.copyright.styles.fontStyle,
-                      ),
-                      textTransform: getStyleValue(
-                        props.copyright.styles.textTransform,
-                      ),
+                      ...resolveTextStyles(props.copyright.styles),
                     }}
                   >
                     {copyrightText}
@@ -1169,7 +1067,7 @@ const CafeAndCoffeeShopFooterComponent: PuckComponent<
                         fieldId={cta.data.cta.field}
                         constantValueEnabled={cta.data.cta.constantValueEnabled}
                       >
-                        <ComprehensiveCTA
+                        <CafeCTA
                           value={{
                             ...cta,
                             sx: {
@@ -1195,7 +1093,11 @@ export const CafeAndCoffeeShopFooter: YextComponentConfig<CafeAndCoffeeShopFoote
     label: msg("components.footer", "Footer"),
     fields: CafeAndCoffeeShopFooterFields,
     defaultProps: CafeAndCoffeeShopFooterDefaultProps,
-    render: (props) => <CafeAndCoffeeShopFooterComponent {...props} />,
+    render: (props) => (
+      <TypographyScope>
+        <CafeAndCoffeeShopFooterComponent {...props} />
+      </TypographyScope>
+    ),
   };
 
 export const config: SectionConfig = {
