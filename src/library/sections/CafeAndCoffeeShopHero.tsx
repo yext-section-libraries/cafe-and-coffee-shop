@@ -1046,7 +1046,7 @@ const CafeAndCoffeeShopHeroComponent: PuckComponent<
 
 export const CafeAndCoffeeShopHero: YextComponentConfig<CafeAndCoffeeShopHeroProps> =
   {
-    label: msg("components.heroSection", "Hero Section"),
+    label: msg("components.heroLabel", "Hero"),
     fields: CafeAndCoffeeShopHeroFields,
     defaultProps: CafeAndCoffeeShopHeroDefaultProps,
     render: (props) => (
@@ -1058,7 +1058,7 @@ export const CafeAndCoffeeShopHero: YextComponentConfig<CafeAndCoffeeShopHeroPro
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopHero",
-  displayName: "Hero Section",
+  displayName: "Hero",
   description: "Hero",
   pageSetTypes: ["ENTITY"],
 };

@@ -212,7 +212,7 @@ const CafeAndCoffeeShopBannerComponent: PuckComponent<
  */
 export const CafeAndCoffeeShopBanner: YextComponentConfig<CafeAndCoffeeShopBannerProps> =
   {
-    label: msg("components.bannerSection", "Banner Section"),
+    label: msg("components.bannerLabel", "Banner"),
     fields: toPuckFields<CafeAndCoffeeShopBannerProps>(
       CafeAndCoffeeShopBannerFields,
     ),
@@ -255,7 +255,7 @@ export const CafeAndCoffeeShopBanner: YextComponentConfig<CafeAndCoffeeShopBanne
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopBanner",
-  displayName: "Banner Section",
+  displayName: "Banner",
   description: "Banner",
   pageSetTypes: ["ENTITY", "DIRECTORY", "LOCATOR"],
 };

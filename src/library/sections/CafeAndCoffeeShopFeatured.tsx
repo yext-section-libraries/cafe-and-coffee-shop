@@ -742,7 +742,7 @@ const CafeAndCoffeeShopFeaturedComponent: PuckComponent<
 
 export const CafeAndCoffeeShopFeatured: YextComponentConfig<CafeAndCoffeeShopFeaturedProps> =
   {
-    label: msg("components.featuredSection", "Featured Items Section"),
+    label: msg("components.featuredLabel", "Featured Items"),
     fields: CafeAndCoffeeShopFeaturedFields,
     defaultProps: CafeAndCoffeeShopFeaturedDefaultProps,
     render: (props) => (
@@ -754,7 +754,7 @@ export const CafeAndCoffeeShopFeatured: YextComponentConfig<CafeAndCoffeeShopFea
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopFeatured",
-  displayName: "Featured Items Section",
+  displayName: "Featured Items",
   description: "Featured",
   pageSetTypes: ["ENTITY"],
 };

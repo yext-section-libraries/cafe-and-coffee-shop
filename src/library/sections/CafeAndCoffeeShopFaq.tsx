@@ -566,7 +566,7 @@ const CafeAndCoffeeShopFaqComponent: PuckComponent<
 
 export const CafeAndCoffeeShopFaq: YextComponentConfig<CafeAndCoffeeShopFaqProps> =
   {
-    label: msg("components.faqSection", "FAQ Section"),
+    label: msg("components.faqLabel", "FAQ"),
     fields: CafeAndCoffeeShopFaqFields,
     defaultProps: CafeAndCoffeeShopFaqDefaultProps,
     render: (props) => (
@@ -578,7 +578,7 @@ export const CafeAndCoffeeShopFaq: YextComponentConfig<CafeAndCoffeeShopFaqProps
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopFaq",
-  displayName: "FAQ Section",
+  displayName: "FAQ",
   description: "FAQ",
   pageSetTypes: ["ENTITY"],
 };

@@ -1090,7 +1090,7 @@ const CafeAndCoffeeShopDetailsComponent: PuckComponent<
 
 export const CafeAndCoffeeShopDetails: YextComponentConfig<CafeAndCoffeeShopDetailsProps> =
   {
-    label: msg("components.detailsSection", "Details Section"),
+    label: msg("components.detailsLabel", "Details"),
     fields: CafeAndCoffeeShopDetailsFields,
     defaultProps: CafeAndCoffeeShopDetailsDefaultProps,
     render: (props) => (
@@ -1102,7 +1102,7 @@ export const CafeAndCoffeeShopDetails: YextComponentConfig<CafeAndCoffeeShopDeta
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopDetails",
-  displayName: "Details Section",
+  displayName: "Details",
   description: "Details",
   pageSetTypes: ["ENTITY"],
 };

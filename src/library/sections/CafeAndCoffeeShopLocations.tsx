@@ -1166,7 +1166,7 @@ const CafeAndCoffeeShopLocationsComponent = (props: RuntimeProps) => {
 
 export const CafeAndCoffeeShopLocations: YextComponentConfig<CafeAndCoffeeShopLocationsProps> =
   {
-    label: msg("components.nearbyLocationsSection", "Nearby Locations Section"),
+    label: msg("components.nearbyLocationsLabel", "Nearby Locations"),
     fields,
     defaultProps,
     render: (props) => (
@@ -1178,7 +1178,7 @@ export const CafeAndCoffeeShopLocations: YextComponentConfig<CafeAndCoffeeShopLo
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopLocations",
-  displayName: "Nearby Locations Section",
+  displayName: "Nearby Locations",
   description: "Locations",
   pageSetTypes: ["ENTITY"],
 };

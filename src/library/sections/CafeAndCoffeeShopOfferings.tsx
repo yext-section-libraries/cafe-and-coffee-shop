@@ -494,7 +494,7 @@ const CafeAndCoffeeShopOfferingsComponent = (
 
 export const CafeAndCoffeeShopOfferings: YextComponentConfig<CafeAndCoffeeShopOfferingsProps> =
   {
-    label: msg("fields.offerings", "Offerings Section"),
+    label: msg("components.offeringsLabel", "Offerings"),
     fields: CafeAndCoffeeShopOfferingsFields,
     defaultProps: CafeAndCoffeeShopOfferingsDefaultProps,
     render: (props) => (
@@ -506,7 +506,7 @@ export const CafeAndCoffeeShopOfferings: YextComponentConfig<CafeAndCoffeeShopOf
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopOfferings",
-  displayName: "Offerings Section",
+  displayName: "Offerings",
   description: "Offerings",
   pageSetTypes: ["ENTITY"],
 };

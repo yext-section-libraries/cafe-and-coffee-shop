@@ -465,7 +465,7 @@ const CafeAndCoffeeShopBreadcrumbsComponent = (
 
 export const CafeAndCoffeeShopBreadcrumbs: YextComponentConfig<CafeAndCoffeeShopBreadcrumbsProps> =
   {
-    label: msg("components.breadcrumbsSection", "Breadcrumbs Section"),
+    label: msg("components.breadcrumbsLabel", "Breadcrumbs"),
     fields: CafeAndCoffeeShopBreadcrumbsFields,
     defaultProps: CafeAndCoffeeShopBreadcrumbsDefaultProps,
     render: (props) => (
@@ -477,7 +477,7 @@ export const CafeAndCoffeeShopBreadcrumbs: YextComponentConfig<CafeAndCoffeeShop
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopBreadcrumbs",
-  displayName: "Breadcrumbs Section",
+  displayName: "Breadcrumbs",
   description: "Breadcrumbs",
   pageSetTypes: ["ENTITY"],
 };
