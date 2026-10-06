@@ -804,7 +804,7 @@ const CafeAndCoffeeShopReviewsComponent = (
 
 export const CafeAndCoffeeShopReviews: YextComponentConfig<CafeAndCoffeeShopReviewsProps> =
   {
-    label: msg("components.reviewsSection", "Reviews Section"),
+    label: msg("components.reviewsLabel", "Reviews"),
     fields: CafeAndCoffeeShopReviewsFields,
     defaultProps: CafeAndCoffeeShopReviewsDefaultProps,
     render: (props) => (
@@ -816,7 +816,7 @@ export const CafeAndCoffeeShopReviews: YextComponentConfig<CafeAndCoffeeShopRevi
 
 export const config: SectionConfig = {
   id: "CafeAndCoffeeShopReviews",
-  displayName: "Reviews Section",
+  displayName: "Reviews",
   description: "Reviews",
   pageSetTypes: ["ENTITY"],
 };
