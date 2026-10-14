@@ -373,5 +373,6 @@
   "useOurLocatorToFindALocationNearYou": "Pomocou nášho vyhľadávača nájdete miesto vo vašom okolí",
   "visitPage": "Navštíviť stránku",
   "visitPageForName": "Navštíviť stránku pre {{name}}",
-  "whereToFindUs": "Kde nás nájdete"
+  "whereToFindUs": "Kde nás nájdete",
+  "mapRequiresWebGL": "Mapa nie je dostupná, pretože WebGL nie je k dispozícii."
 }

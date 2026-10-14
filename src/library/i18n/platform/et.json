@@ -361,5 +361,6 @@
   "useOurLocatorToFindALocationNearYou": "Kasutage meie asukoha leidmiseks meie asukohta",
   "visitPage": "Külastage leht",
   "visitPageForName": "Külastage lehte {{name}} jaoks",
-  "whereToFindUs": "Kust meid leida"
+  "whereToFindUs": "Kust meid leida",
+  "mapRequiresWebGL": "Kaart pole saadaval, sest WebGL pole saadaval."
 }

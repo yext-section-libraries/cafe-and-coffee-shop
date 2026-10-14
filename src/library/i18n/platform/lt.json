@@ -373,5 +373,6 @@
   "useOurLocatorToFindALocationNearYou": "Naudokite mūsų ieškiklį, kad rastumėte vietą šalia jūsų",
   "visitPage": "Apsilankykite puslapyje",
   "visitPageForName": "Apsilankykite puslapyje {{name}}",
-  "whereToFindUs": "Kur mus rasti"
+  "whereToFindUs": "Kur mus rasti",
+  "mapRequiresWebGL": "Žemėlapis nepasiekiamas, nes WebGL nepasiekiamas."
 }

@@ -361,5 +361,6 @@
   "useOurLocatorToFindALocationNearYou": "Használja a lokátorunkat, hogy találjon egy helyet a közelben",
   "visitPage": "Látogasson el az oldalra",
   "visitPageForName": "Látogassa meg a {{name}} oldalát",
-  "whereToFindUs": "Hol talál meg minket"
+  "whereToFindUs": "Hol talál meg minket",
+  "mapRequiresWebGL": "A térkép nem érhető el, mert a WebGL nem érhető el."
 }

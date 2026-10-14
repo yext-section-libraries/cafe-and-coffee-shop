@@ -355,5 +355,6 @@
   "useOurLocatorToFindALocationNearYou": "ロケーターを使用して、お近くの場所を見つけてください",
   "visitPage": "ページにアクセスしてください",
   "visitPageForName": "{{name}} のページにアクセスしてください",
-  "whereToFindUs": "店舗所在地"
+  "whereToFindUs": "店舗所在地",
+  "mapRequiresWebGL": "WebGL が利用できないため、地図を表示できません。"
 }
