@@ -367,5 +367,6 @@
   "useOurLocatorToFindALocationNearYou": "Folosiți localizatorul nostru pentru a găsi o locație lângă dvs.",
   "visitPage": "Vizitați pagina",
   "visitPageForName": "Vizitați pagina pentru {{name}}",
-  "whereToFindUs": "Unde ne găsiți"
+  "whereToFindUs": "Unde ne găsiți",
+  "mapRequiresWebGL": "Harta nu este disponibilă deoarece WebGL nu este disponibil."
 }

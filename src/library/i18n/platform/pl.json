@@ -373,5 +373,6 @@
   "useOurLocatorToFindALocationNearYou": "Użyj naszego lokalizatora, aby znaleźć lokalizację w pobliżu",
   "visitPage": "Odwiedź stronę",
   "visitPageForName": "Odwiedź stronę dla {{name}}",
-  "whereToFindUs": "Gdzie nas znaleźć"
+  "whereToFindUs": "Gdzie nas znaleźć",
+  "mapRequiresWebGL": "Mapa jest niedostępna, ponieważ WebGL jest niedostępny."
 }

@@ -361,5 +361,6 @@
   "useOurLocatorToFindALocationNearYou": "Använd vår lokalisering för att hitta en plats nära dig",
   "visitPage": "Besöka sidan",
   "visitPageForName": "Besök sidan för {{name}}",
-  "whereToFindUs": "Här hittar du oss"
+  "whereToFindUs": "Här hittar du oss",
+  "mapRequiresWebGL": "Kartan är inte tillgänglig eftersom WebGL inte är tillgängligt."
 }

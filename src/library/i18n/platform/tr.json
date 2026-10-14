@@ -361,5 +361,6 @@
   "useOurLocatorToFindALocationNearYou": "Yakınınızdaki bir yer bulmak için bulucumuzu kullanın",
   "visitPage": "Sayfayı Ziyaret Edin",
   "visitPageForName": "{{name}} Sayfasını Ziyaret Edin",
-  "whereToFindUs": "Bizi nerede bulabilirsiniz"
+  "whereToFindUs": "Bizi nerede bulabilirsiniz",
+  "mapRequiresWebGL": "WebGL kullanılamadığı için harita kullanılamıyor."
 }
